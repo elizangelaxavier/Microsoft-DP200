@@ -22,7 +22,7 @@ After completing this lab, you will be able to:
 
 ## Scenario
   
-You are the senior data engineer at AdventureWorks, and you are working with your team to transition relational database systems from on-premises SQL Servers to relational database located in Azure. You will begin by creating an instance of SQL Database that will be handed of the junior data engineers to migrate some departmental databases.
+You are the senior data engineer at AdventureWorks, and you are working with your team to transition relational database systems from on-premises SQL Servers to relational database located in Azure. You will begin by creating an instance of SQL Server with the company's sample database that will be handed of the junior data engineers to perform some testing of departmental databases.
 
 You will then provision a SQL Data Warehouse and test that the provisioning of the server is successful by testing a sample database with a series of queries. You will then use PolyBase to load dimension tables from Azure Blob and Azure Databricks to test that the integration of these data platform technologies with Azure SQL Data Warehouse.
 
@@ -66,6 +66,8 @@ The main task for this exercise are as follows:
         - Confirm Password: **P@ssw0rd**
         - Location: choose a **location** near to you.
         - Allow Azure services to access server: **checked**
+
+    - Click on **Additional settings** tab, under **Data Source**, click on **Sample**.
 
     - Leave the remaining settings to their defaults
 

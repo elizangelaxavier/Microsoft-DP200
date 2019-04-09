@@ -137,6 +137,8 @@ The main tasks for this exercise are as follows:
 
 1. Repeat steps 4 -5 to create a container named **data** with the public access level of **Private (no anonymous access)**
 
+1. Repeat steps 4 -5 to create a container named **tweets** with the public access level of **Private (no anonymous access)**
+
 ### Task 4: Upload some graphics to the images container of the storage account.
 
 1. In the Azure portal, in the **awsastudxx - Blobs** screen, click on the **images** item in the list.
