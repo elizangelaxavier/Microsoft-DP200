@@ -31,6 +31,8 @@ At the end of this lad, you will have:
 1. Data Ingestion with Event Hubs
 1. Processing Data with Stream Analytics Jobs
 
+> **IMPORTANT**: As you go through this lab, make a note of any issue(s) that you have encountered in any provisioning or configuration tasks and log it in the table in the document located at _\Labfiles\DP-200-Issues-Doc.docx_. Document the Lab number, note the technology, Describe the issue, and what was the resolution. Save this document as you will refer back to it in a later module.
+
 ## Exercise 1: Explain data streams and event processing
 
 Estimated Time: 15 minutes

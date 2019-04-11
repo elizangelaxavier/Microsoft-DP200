@@ -33,6 +33,8 @@ At the end of this lad, you will have:
 1. Azure Data Factory Components
 1. Azure Data Factory and Databricks
 
+> **IMPORTANT**: As you go through this lab, make a note of any issue(s) that you have encountered in any provisioning or configuration tasks and log it in the table in the document located at _\Labfiles\DP-200-Issues-Doc.docx_. Document the Lab number, note the technology, Describe the issue, and what was the resolution. Save this document as you will refer back to it in a later module.
+
 ## Exercise 1: Explain how Azure Data Factory works
 
 Estimated Time: 15 minutes
