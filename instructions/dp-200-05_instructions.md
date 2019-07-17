@@ -392,6 +392,7 @@ The main tasks for this exercise are as follows:
     ```SQL
     SELECT * FROM dbo.Dates;
     ```
+### This lab is now complete - do not perform the steps in task 3
 
 ### Task 3: Create a dbo.Preferences table using PolyBase from Azure Databricks
 
