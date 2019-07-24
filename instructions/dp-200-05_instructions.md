@@ -59,13 +59,13 @@ The main task for this exercise are as follows:
 
     - Resource group name: **awrgstudxx**, where **xx** are your initials.
 
-    - Database name: **DeptDatabasesxx**, where **xx** are your initials.
+    - Database name: In **Additional setting** tab, under data source, click **Sample** . The AdventureworksLT sample database is selected automatically.
 
-    - Server: Create a new server with the following settings and click on **Select**:
+    - Server: Create a new server by clicking **Create new** with the following settings and click on **OK**:
         - Server name: **SQLServicexx**, where **xx** are your initials
         - Server admin login: **xxsqladmin**, where **xx** are your initials
-        - Password: **P@ssw0rd**
-        - Confirm Password: **P@ssw0rd**
+        - Password: **Pa55w.rd**
+        - Confirm Password: **Pa55w.rd**
         - Location: choose a **location** near to you.
         - Allow Azure services to access server: **checked**
 
@@ -101,21 +101,19 @@ The main tasks for this exercise are as follows:
 
 1. In the **SQL Data Warehouse** blade, click **Create**.
 
-1. From the **SQL Data Warehouse** blade, create an Azure SQL Database with the following settings:
+1. From the **SQL Data Warehouse** blade, create an Azure SQL Data Warehouse with the following settings:
 
     - Database name: **Warehousexx**, where **xx** are your initials.
 
     - Subscription: the name of the subscription you are using in this lab
 
     - Resource group name: **awrgstudxx**, where **xx** are your initials.
-
-    - Select Source: **Sample**
-
-    - Select Sample: **AdventureWorksDW**
-
     - Server: **SQLServicexx**
 
-    - Performance Level: **Gen1 DW200**
+    - Performance Level: **Gen2 DW100C**
+
+    - Select Source: In **Additional setting** tab, under data source, click **Sample**
+
 
 1. In the **SQL Data Warehouse*** blade, click **Create**.
 
@@ -179,7 +177,7 @@ The main tasks for this exercise are as follows:
     CREATE DATABASE DWDB COLLATE SQL_Latin1_General_CP1_CI_AS
     (
         EDITION 			= 'DataWarehouse'
-    ,	SERVICE_OBJECTIVE 	= 'DW100'
+    ,	SERVICE_OBJECTIVE 	= 'DW100C'
     ,	MAXSIZE 			= 1024 GB
     );
     ```
@@ -191,6 +189,8 @@ The main tasks for this exercise are as follows:
 ### Task 3: Create SQL Data Warehouse tables.
 
 1. In **SQL Server Management Studio**, in Object Explorer, right click **sqlservicexx.database.windows.net** and click on **New Query**.
+
+    >**Note**: If you are unfamiliar with Transact-SQL, there is a script in the Allfiles\Solution\DP-200.5\folder named **Exercise3 Task3Step2 script.sql**. It contains the bulk of the code required to create the tables, but you do have to complete the code by selecting the distribution type to use for each table 
 
 1. Create a table named **dbo.Users** with a **clustered columnstore** index with a distribution of **replicate** with the following columns:
 
@@ -250,7 +250,6 @@ The main tasks for this exercise are as follows:
 
 1. Create a dbo.Dates table using PolyBase from Azure Blob
 
-1. Create a dbo.Preferences table using PolyBase from Azure Databricks
 
 ### Task 1: Collect Azure Blob account name and key details
 
@@ -293,16 +292,6 @@ The main tasks for this exercise are as follows:
         LOCATION = 'wasbs://data@awsastudxx.blob.core.windows.net',
         CREDENTIAL = AzureStorageCredential
     );
-    ```
-
-1. In **SQL Server Management Studio**, highlight the statement and then click on **Execute**.
-
-    ```SQL
-    CREATE DATABASE SCOPED CREDENTIAL AzureStorageCredential
-    WITH
-    IDENTITY = 'MOCID',
-    SECRET = 'Your Blob Storage key'
-    ;
     ```
 
 1. In **SQL Server Management Studio**, in the Query window, type in code that will create an external file format named **TextFile** with a formattype of **DelimitedText** and a filed terminator of **comma**.

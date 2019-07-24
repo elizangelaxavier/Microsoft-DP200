@@ -177,15 +177,15 @@ The main tasks for this exercise are as follows:
 
 1. In the **App registrations** screen, click on the **+ New application registration** button.
 
-1. Provide the **name** of **DLAccess** and **URL** of **https://adventureworks.org/exampleapp** for the application. Select **Web app / API** for the type of application you want to create. After setting the values, select **Create**. The DLAccess screen will appear. 
+1. In the register an application screen, provide the **name** of **DLAccess** and under the **Redirect URI (optional)** section, ensure **Web** is selected and type **https://adventureworks.org/exampleapp** for the application value. After setting the values, select **Register**. The DLAccess screen will appear.
 
-1. In the **DLAccess** registered app screen, copy the **Application ID** and paste it into Notepad.
+1. In the **DLAccess** registered app screen, copy the **Application ID** and **Tenant ID** and paste both into Notepad.
 
-1. In the **DLAccess** registered app screen, click on the **Settings** button, and then click on the **Keys** option.
+1. In the **DLAccess** registered app screen, click on **Certificates and Secrets**, and the click **+New Client Secret..**
 
 1. Provide a **description** of **DL Access Key**, and a **duration** of **In 1 year** for the key. When done, click **Save**.
 
-    >**Important**: When you click on Save, the key will appear. You only have one opportunity to copy this key value
+    >**Important**: When you click on Save, the key will appear. You only have one opportunity to copy this key value into Notepad
 
 1. Copy the **Application key value** and paste it into Notepad
 

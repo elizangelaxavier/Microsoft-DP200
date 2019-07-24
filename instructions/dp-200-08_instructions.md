@@ -126,7 +126,7 @@ The main tasks for this exercise are as follows:
 
 1. In the Azure portal, in the blade, click **Resource groups**, and then click **awrgstudxx**, and then click on **awdlsstudxx**, where **xx** are your initials
 
-1. Click on **DeptDatabasesxx**, where **xx** are your initials.
+1. In the Azure portal, in the blade, click Resource groups, and then click awrgstudxx, and then click on **AdventureWorksLT**.
 
 1. In the deptdatabasesxx (sqlservicexx/deptdatabasesxx) screen, click on the **Auditing** blade.
 
@@ -160,7 +160,7 @@ The main tasks for this exercise are as follows:
 
 > **Note**: An error message is returned as the password is incorrect. Type in the correct password of **P@Ssw0rd**.
 
-1. In **SQL Server Management Studio**, in Object Explorer, expand **DeptDatabasesxx**, and then expand **Tables**.
+1. In **SQL Server Management Studio**, in Object Explorer, expand **AdventureWorksLT**, and then expand **Tables**.
 
 1. Right click [SalesLT].[Customers] and then click **Select Top 1000 Rows**
 
@@ -172,7 +172,7 @@ The main tasks for this exercise are as follows:
 
 > **Result**: After you completed this exercise, you have enabled database auditing and verified that the auditing works.
 
-## Exercise 4: Securing Streaming Data
+## Exercise 5: Securing Streaming Data
   
 Estimated Time: 15 minutes
 

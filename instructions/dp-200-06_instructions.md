@@ -73,9 +73,9 @@ The main tasks for this exercise are as follows:
 
 ### Task 1: Create and configure an Event Hub Namespace.
 
-1. In the Azure portal, select **+ Create a resource**, type **Event Hubs**, and then select **Event Hub Namespace** from the resulting search. Then select **Create**.
+1. In the Azure portal, select **+ Create a resource**, type **Event Hubs**, and then select **Event Hubs** from the resulting search. Then select **Create**.
 
-1. Create an Event Hub Namespace with the following options, then click **Create**:
+1. In the Create Namespace blade, type out the following options, then click **Create**:
     - **Name**: xx-socialtwitter-eh, where xx are your initials
     - **Pricing Tier**: Standard
     - **Subscription**: Your subscription
@@ -153,7 +153,9 @@ The main tasks for this exercise are as follows:
 
     > **Note**: please remember to observe all applicable laws and ethics for your country of operation
 
-1. In the "Tell us about your project" page, choose an option for "What use case(s) are you interested in?". For the purpose of this course select **Student project / Learning to code**. In the "Describe in your own words what you are building", spend 300 words to explain why this is being used. below is an example:
+1. In the "Tell us about your project" page, choose an option for "What use case(s) are you interested in?". For the purpose of this course select **Student**. In the "Describe in your own words what you are building", spend 300 words to explain why this is being used. below is an example:
+
+> **Note**: the questions and options in this screen can change.
 
     >1. I’m using Twitter’s APIs to learn how to embed twitter statements within a learning application. this account is being used to learn how to do that
     >2.  I plan to analyze Tweets to understand how to count and read streaming tweets in real time as part of a learning exercise
@@ -172,7 +174,7 @@ The main tasks for this exercise are as follows:
 
 1. In the "Welcome" or "Apps" page, click on the button **Create an app**.
 
-1. In the “Create an App" page, provide the following information and click on **Create**:
+1. In the “Create an App" page, provide the following information and click on **Create an App**:
     - **name**: xx-social-app, where xx are your initials
     - **Application description**: add a description such as "used to collect and aggregate tweets"
     - **website URL** a personal address that you can use for the application.
@@ -248,7 +250,24 @@ The main tasks for this exercise are as follows:
 
 1. Once completed, the TwitterStream Input job will appear under the input window. Close the input widow to return to the Streaming Analytics Job Page
 
-### Task 6: Defining a Stream Analytics query.
+### Task 6: Specify the a Stream Analytics job output.
+
+1. In your **socialtwitter-asa-job** Stream Analytics job window, click **Outputs**.
+
+1. In the **Outputs** screen, click **+ Add**, and then click **Blob Storage**.
+
+1. In the **Blob storage** window, type or select the following values in the pane:
+- **Output alias**: Output
+- **Select Event Hub from your subscriptions**: checked
+- **Subscription**: Your subscription name
+- **Storage account**: awsastudxx, where xx is your initials
+- **Container**: Use existing and select tweets
+
+1. Leave the rest of the entries as default values. Finally, click **Save***.
+
+1. Close the output screen to return to the Stream Analytics job page
+
+### Task 7: Defining a Stream Analytics query.
 
 1. In your **socialtwitter-asa-job** window, in the **Query** screen in the middle of the window, click on ** Edit query**
 
@@ -279,23 +298,6 @@ The main tasks for this exercise are as follows:
 
 1. Close the Query window to return to the Stream Analytics job page.
 
-
-### Task 7: Specify the a Stream Analytics job output.
-
-1. In your **socialtwitter-asa-job** Stream Analytics job window, click **Outputs**.
-
-1. In the **Outputs** screen, click **+ Add**, and then click **Blob Storage**.
-
-1. In the **Blob storage** window, type or select the following values in the pane:
-- **Output alias**: Output
-- **Select Event Hub from your subscriptions**: checked
-- **Subscription**: Your subscription name
-- **Storage account**: awsastudxx, where xx is your initials
-- **Container**: Use existing and select tweets
-
-1. Leave the rest of the entries as default values. Finally, click **Save***.
-
-1. Close the output screen to return to the Stream Analytics job page
 
 ### Task 8: Defining a Stream Analytics query.
 
@@ -350,7 +352,7 @@ The main tasks for this exercise are as follows:
 
 1. Confirm that a JSON file appears, and note the size column.
 
-1. Refresh Microsoft Edge, and when the screen has refreshed not the size of the file
+1. Refresh Microsoft Edge, and when the screen has refreshed note the size of the file
 
     >**Note**: You could download the file to query the JSON data, you could also output the data to Power BI.
 

@@ -275,6 +275,14 @@ The main task for this exercise are as follows:
 
 1. On completion of the installation, ensure that the checkbox next to **Launch Microsoft Azure Storage Explorer** is selected and then click **Finish**. Microsoft Azure Storage Explorer opens up and lists your subscriptions.
 
+1. In Storage Explorer, select **Manage Accounts** to go to the **Account Management Panel**.
+
+1. The left pane now displays all the Azure accounts you've signed in to. To connect to another account, select **Add an account**
+
+1. If you want to sign into a national cloud or an Azure Stack, click on the Azure environment dropdown to select which Azure cloud you want to use. Once you have chosen your environment, click the **Sign in...** button.
+
+1. After you successfully sign in with an Azure account, the account and the Azure subscriptions associated with that account are added to the left pane. Select the Azure subscriptions that you want to work with, and then select **Apply**. The left pane displays the storage accounts associated with the selected Azure subscriptions.
+
 ### Task 2: Upload data files to the data container of the Data Lake Gen II Storage Account.
 
 1. In Azure Storage Explorer, click on the arrow to expand your subscription.

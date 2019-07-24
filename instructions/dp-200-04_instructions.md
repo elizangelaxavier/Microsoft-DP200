@@ -67,7 +67,7 @@ The main task for this exercise are as follows:
 
 1. In the **Create Azure Cosmos DB Account** blade, click **Review + create**.
 
-1. After the validation of the **Create Azure Cosmos DB Account*** blade, click **Create**.
+1. After the validation of the **Create Azure Cosmos DB Account** blade, click **Create**.
 
    > **Note**: The provision will takes approximately 5 minutes. What is often avoided in these labs is a description of the additional tabs when you provision any service in Azure. You may notice that in the provisioning screen there will be additional tabs such as Network, Tags or Advanced. This enables you to define any customized settings for a service. For example, the network tab of many services enables you to define the configuration of virtual networks, so that you are able to control and secure the network traffic against a given data service. The Tags option  are name/value pairs that enable you to categorize resources and view consolidated billing by applying the same tag to multiple resources and resource groups. Advanced tabs will vary dependant on the service that has it. But it is important to note that you have control over these areas and you wil want to collaborate with your Network admins or indeed your finance department to see how these options should be configured.
 
@@ -95,27 +95,29 @@ The main tasks for this exercise are as follows:
 
 1. In the Azure portal, in the **awcdbstudxx - Quick start** screen, click on the **Overview** option in the blade
 
-1. In the **awcdbstudxx** screen, click **+ Add Collection**. This opens up **Data Explorer** with the **Add Collection** screen.
+1. In the **awcdbstudxx** screen, click **+ Add Container**. This opens up the **awcdbstudxx Data Explorer** blade with the **SQL API** Blade.
 
-1. In the **Add Collection** screen, create a Products database with a collection named Clothing with the following settings:
+1. Above the the **SQL API** Blade, click **New Container** screen, create a Products database with a container named Clothing with the following settings:
 
     - Database id: **Products**
+    
+    - Throughput:  **400**
 
-    - Subscription:  **Clothing**
+    - Container id:  **Clothing**
 
     - Partition key: **/productId**
 
     - Leave the remaining options with their default values
 
-1.In the **Add Collection** screen, click **OK**
+1.In the **Add Container** screen, click **OK**
 
 ### Task 2: Add data using the portal
 
 1. In the **awcdbstudcto - Data Explorer** screen, on the Data Explorer toolbar, opposite the button for New Collection, click on the th **Open Full Screen** button. In the Open Full Screen dialog box, click **Open**. A new tab opens up in Microsoft Edge.
 
-1. In the **SQL API** pane, expand **Clothing** and click on **Documents**. A new document appears with a sample JSON that you will now replace.
+1. In the **SQL API** pane, expand **Clothing** and click on **Items**. A new document appears with a sample JSON that you will now replace.
 
-1. In the Documents pane, click on the icon for **New Document**.
+1. In the Documents pane, click on the icon for **New Item**.
 
 1. Copy the following code and paste it into the **Documents** tab:
 
@@ -140,9 +142,9 @@ The main tasks for this exercise are as follows:
 
 1. Once you've added the JSON to the Documents tab, click **Save**.
 
-1. In the Documents pane, click on the icon for **New Document**.
+1. In the Documents pane, click on the icon for **New Item**.
 
-1. Copy the following code and paste it into the **Documents** tab:
+1. Copy the following code and paste it into the **Items** tab:
 
     ```JSON
     {
@@ -165,13 +167,13 @@ The main tasks for this exercise are as follows:
 
 1. Once you've added the JSON to the Documents tab, click **Save**.
 
-1. You can see each document that has been saved by clicking each document on the left-hand menu.
+1. You can see each document that has been saved by clicking each document on the left-hand menu. The first item with id of 1, will have a value of **33218896**, the second item will be **33218897**
 
 ### Task 3: Run queries in the Azure portal.
 
-1. In the Azure portal, in the **documents** screen, click on the button **New SQL Query**.
+1. In the Azure portal, in the **Items** screen, click on the button **New SQL Query** that is above the **SQL API** Blade.
 
-    > **Note**: A Query 1 screen appears which shows the query **SELECT * FROM c** .
+    > **Note**: A Query 1 screen tab appears which shows the query **SELECT * FROM c** .
 
 1. Write a query that returns a JSON file showing details for productId 1.
 
@@ -259,7 +261,7 @@ The main tasks for this exercise are as follows:
 
 ### Task 4: Run complex operations on your data
 
-1. In the Azure portal, in the **documents** screen, click on the button **New Stored Procedure**.
+1. In the Azure portal, in the **Items** screen, click on the button **New Stored Procedure**.
 
     > **Note**: A New Stored Procedure screen appears which shows a sample stored procedure .
 
@@ -293,7 +295,7 @@ The main tasks for this exercise are as follows:
 
 1. In the New Stored Procedure screen, click **Execute**.
 
-1. In the Input Parameters screen, type **33218898** in the **Partition Key Value** text box, and then click **Execute**.
+1. In the Input Parameters screen, **type** should be set to **string**, and **value** set to  **33218898** in the **Partition Key Value** text box, and then click **Execute**.
 
 The following result is returned
 
@@ -310,7 +312,7 @@ The following result is returned
     }
     ```
 
-1. In the Azure portal, in the **documents** screen, click on the drop down button **New Stored Procedure** and click **New UDF** .
+1. In the Azure portal, in the **items** screen, click on the drop down button **New Stored Procedure** and click **New UDF** .
 
     > **Note**: A New UDF 1 screen appears which shows **function userDefinedFunction(){}**
 
@@ -369,7 +371,49 @@ The following result is returned
     ]
     ```
 
-## Exercise 3: Build a .NET Core app for Azure Cosmos DB in Visual Studio Code
+## Exercise 3: Distribute your data globally with Azure Cosmos DB
+
+Estimated Time: 15 minutes
+
+Individual exercise
+
+The main tasks for this exercise are as follows:
+
+1. Replicate Data to Multiple Regions
+
+1. Managing Failover
+
+### Task 1: Replicate Data to Multiple Regions
+
+1. In Microsoft Edge, click on the tab that states **Data Explorer - Microsoft..**.
+
+1. If a message appears that states "Connection error", click on the button **Refresh**.
+
+1. In the **awcdbstudxx - Data Explorer** window, click on **Replicate data globally**
+
+1. On the world map, single click a data center location within the continent you reside, and click on **Save**.
+
+>**Note**  The provisioning of the additional data centers will take approximately 7 minutes
+
+### Task 2: Managing Failover.
+
+1. In the **awcdbstudxx - Replicate data globally** window, click on **Manual Failover**.
+
+1. Click on the **Read Region** datacenter location and click on **OK**.
+
+>**Note**  The Manual Failover will take approximately 3 minutes.
+
+1. In the **awcdbstudxx - Replicate data globally** window, click on **Automatic Failover**
+
+1. In the "Automatic Failover" screen, click on the **ON** button, and then click on **OK**.
+
+>**Note**  The provisioning of the Automatic Failover will take approximately 3 minutes.
+
+## If time permits
+
+> **Note**: If you have completed the labs so far and there is time, ask the instructor if you can do exercise 4. It is an example of building an application against Cosmos DB. This is not an exam requirement for DP200, and this lab show what is possible
+
+## Exercise 4: Build a .NET Core app for Azure Cosmos DB in Visual Studio Code
 
 Estimated Time: 45 minutes
 
@@ -1080,40 +1124,3 @@ The main tasks for this exercise are as follows:
 
 >**Result** In this exercise, you have built a console application from scratch by setting up Visual Studio code to connect with Azure Cosmos DB. You have then created .Net code to create, read, update, and delete NoSQL data programmatically. You then added code to query the Cosmos DB and learned how to create programming objects such as Stored Procedures to work against Cosmos DB
 
-## Exercise 4: Distribute your data globally with Azure Cosmos DB
-
-Estimated Time: 15 minutes
-
-Individual exercise
-
-The main tasks for this exercise are as follows:
-
-1. Replicate Data to Multiple Regions
-
-1. Managing Failover
-
-### Task 1: Replicate Data to Multiple Regions
-
-1. In Microsoft Edge, click on the tab that states **Data Explorer - Microsoft..**.
-
-1. If a message appears that states "Connection error", click on the button **Refresh**.
-
-1. In the **awcdbstudxx - Data Explorer** window, click on **Replicate data globally**
-
-1. On the world map, single click a data center location within the continent you reside, and click on **Save**.
-
->**Note**  The provisioning of the additional data centers will take approximately 7 minutes
-
-### Task 2: Managing Failover.
-
-1. In the **awcdbstudxx - Replicate data globally** window, click on **Manual Failover**.
-
-1. Click on the **Read Region** datacenter location and click on **OK**.
-
->**Note**  The Manual Failover will take approximately 3 minutes.
-
-1. In the **awcdbstudxx - Replicate data globally** window, click on **Automatic Failover**
-
-1. In the "Automatic Failover" screen, click on the **ON** button, and then click on **OK**.
-
->**Note**  The provisioning of the Automatic Failover will take approximately 3 minutes.
