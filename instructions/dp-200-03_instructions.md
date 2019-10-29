@@ -177,7 +177,7 @@ The main tasks for this exercise are as follows:
 
 1. In the **App registrations** screen, click on the **+ New application registration** button.
 
-1. In the register an application screen, provide the **name** of **DLAccess** and under the **Redirect URI (optional)** section, ensure **Web** is selected and type **https://adventureworks.org/exampleapp** for the application value. After setting the values, select **Register**. The DLAccess screen will appear.
+1. In the register an application screen, provide the **name** of **DLAccess** and under the **Redirect URI (optional)** section, ensure **Web** is selected and type **https://adventure-works.com/exampleapp** for the application value. After setting the values, select **Register**. The DLAccess screen will appear.
 
 1. In the **DLAccess** registered app screen, copy the **Application ID** and **Tenant ID** and paste both into Notepad.
 
