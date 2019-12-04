@@ -71,7 +71,7 @@ The main tasks for this exercise are as follows:
 
 1. Create and configure a storage account named **awsastudxx** in the region closest to the lab location within the resource group awrgstudxx, where **xx** are your initials.
 
-1. Create a container named **images** and **data** within the awsastudxx storage account.
+1. Create a container named **images** within the awsastudxx storage account.
 
 1. Upload some graphics to the images container of the storage account.
 
@@ -137,8 +137,6 @@ The main tasks for this exercise are as follows:
 
    > **Note**: The creation of the container is immediate and will appear in the list of the **awrgstudxx - Blobs** screen.
 
-1. Repeat steps 4 -5 to create a container named **data** with the public access level of **Private (no anonymous access)**
-
 1. Repeat steps 4 -5 to create a container named **tweets** with the public access level of **Private (no anonymous access)**
 
 ### Task 4: Upload some graphics to the images container of the storage account.
@@ -165,18 +163,6 @@ The main tasks for this exercise are as follows:
 
 1. Close the **Upload blob** screen, and close the **images** screen.
 
-1. In the Azure portal, in the **awsastudxx - Blobs** screen, click on the **data** item in the list.
-
-1. In the **data** screen, click on the **Upload** button.
-
-1. In the **Upload blob** screen, in the Files text box, click on the **folder** icon to the right of the text box.
-
-1. In the **Open** dialog box, browse to  **Labfiles\Starter\DP-200.2\Static files** folder. Highlight the **DimDate2.txt** file.
-
-1. In the **Open** dialog box, click **Open**. 
-
-1. In the **Upload blob** screen, click on the **Upload** button.
-
 1. Close the **Upload blob** screen, and in the Azure portal, navigate to the **Home** blade 
 
    > **Note**: The upload of the files will take approximately 5 seconds. Once completed, they will appear in a list in the upload blobs screen.
@@ -193,7 +179,7 @@ The main tasks for this exercise are as follows:
 
 1. Create and configure a storage account named **awdlsstudxx** as a Data Lake Store Gen II storage type in the region closest to the lab location, within the resource group awrgstudxx, where **xx** are your initials.
 
-1. Create a file system named **data** within the awdlsstudxx storage account.
+1. Create a file system named **logs** and **data** within the awdlsstudxx storage account.
 
 1. Upload some data files to the data container of the storage account.
 
@@ -231,13 +217,15 @@ The main tasks for this exercise are as follows:
 
 1. In the Azure portal, a message states that _Your deployment is complete_, click on the button **Go to resource**.
 
-1. In the **awdlsstudxx** screen, where **xx** are your initials, under the **Services** click **Data Lake Gen2 file systems**.
+1. In the **awdlsstudxx** screen, where **xx** are your initials, click **Containers**.
 
-1. In the **awrgstudxx - File systems** screen, at the top left, click on the  **+ File systems** button.
+1. In the **awrgstudxx - Containers** screen, at the top left, click on the  **+ File systems** button.
 
-1. From the **Add file systems** screen, create a file system with the following settings:
+1. From the **Add file systems** screen, create two file systems with the following name:
 
     - Name: **data**.
+
+    - Name: **logs**
 
 1. In the **Add file systems*** screen, click **OK**.
 
@@ -263,7 +251,7 @@ The main task for this exercise are as follows:
 
 1. A screen appears stating Azure Data Lake Storage Gen2 is now available in Storage Explorer, click on the **Download Azure Storage Explorer** link.
 
-1. You are taken to the following web page for [Azure Storage Explorer](https://azure.microsoft.com/en-us/features/storage-explorer/) where there is a button that states **Download Storage Explorer free**. click on this button.
+1. You are taken to the following web page for [Azure Storage Explorer](https://azure.microsoft.com/en-us/features/storage-explorer/) where there is a button that states **Download now**. click on this button.
 
 1. In the Microsoft Edge dialog box click **Save**, when the download is complete, click on **View downloads**, in the download screen in Microsoft Edge, click on **Open folder**. This will open the Downloads folder.
 
@@ -289,7 +277,7 @@ The main task for this exercise are as follows:
 
 1. Under **Storage Accounts**, search for the storage account **awdlsstudxx (ADLS Gen2)**, and click on the arrow to expand it.
 
-1. Under **Blob Containers**, click on the arrow to expand it and show the **data** file system. Click on the **data** file system.
+1. Under **Blob Containers**, click on the arrow to expand it and show the **logs** file system. Click on the **logs** file system.
 
 1. In Azure Storage Explorer, click on the arrow next to the **Upload** icon, and click on the **Upload Files..**.
 
@@ -302,6 +290,22 @@ The main task for this exercise are as follows:
     - weblogsQ2.log
 
     - preferences.json
+
+1. In the **Choose files to upload** dialog box, click **Open**.
+
+1. In the **Upload Files** screen, click on the **Upload** button.
+
+   > **Note**: The upload of the files will take approximately 5 seconds. You will see a message in Azure Storage Explorer that states **Your view may be out of data. Do you want to refresh? Click Yes**. Once completed, all three files will appear in a list in the upload blobs screen.
+
+1. Under **Blob Containers**, click on the arrow to expand it and show the **data** file system. Click on the **data** file system.
+
+1. In Azure Storage Explorer, click on the arrow next to the **Upload** icon, and click on the **Upload Files..**.
+
+1. In Upload Files dialog box, click on the ellipsis next to the **Selected files** text box.
+
+1. In the **Choose files to upload** dialog box, browse to **Labfiles\Starter\DP-200.2\logs** folder. Highlight the following files:
+
+    - DimDate2.txt
 
 1. In the **Choose files to upload** dialog box, click **Open**.
 
