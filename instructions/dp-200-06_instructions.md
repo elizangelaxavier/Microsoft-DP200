@@ -17,18 +17,20 @@ After completing this lab, you will be able to:
 
 1. Explain data streams and event processing
 1. Data Ingestion with Event Hubs
+1. Initiate a data generation application
 1. Processing Data with Stream Analytics Jobs
 
 ## Scenario
   
-As part of the digital transformation project, you have been tasked by the CIO to help the marketing departments become more productive with aspects of their work. Over the last few years the marketing department has been using Twitter to amplify marketing message around the bicycle products that are sold. 
+As part of the digital transformation project, you have been tasked by the CIO to help the customer services departments identify fraudulent calls. Over the last few years the customer services departments have observed an increase in calls from fraudulent customer who are asking for support for bikes that are no longer in warranty, or bikes that have not even been purchased at AdventureWorks. 
 
-Whilst the department can provide reach numbers post campaign, they are unable to understand who is interacting with their campaigns in real-time, as the volumes are difficult to track manually. As a result, they would like to implement a system that can track in real-time who is responding to their campaign.
+The department are currently relying on the experience of customer services agents to identify this. As a result, they would like to implement a system that can help the agents track in real-time who could be making a fradulent claim.
 
 At the end of this lad, you will have:
 
 1. Explain data streams and event processing
 1. Data Ingestion with Event Hubs
+1. Initiate a data generation application
 1. Processing Data with Stream Analytics Jobs
 
 > **IMPORTANT**: As you go through this lab, make a note of any issue(s) that you have encountered in any provisioning or configuration tasks and log it in the table in the document located at _\Labfiles\DP-200-Issues-Doc.docx_. Document the Lab number, note the technology, Describe the issue, and what was the resolution. Save this document as you will refer back to it in a later module.
@@ -76,200 +78,186 @@ The main tasks for this exercise are as follows:
 1. In the Azure portal, select **+ Create a resource**, type **Event Hubs**, and then select **Event Hubs** from the resulting search. Then select **Create**.
 
 1. In the Create Namespace blade, type out the following options, then click **Create**:
-    - **Name**: xx-socialtwitter-eh, where xx are your initials
+    - **Name**: xx-phoneanalysis-ehns, where xx are your initials
     - **Pricing Tier**: Standard
     - **Subscription**: Your subscription
     - **Resource group**: awrgstudxx
     - **Location**: select the location closest to you
+    - **Enable Auto-Inflate**: click on the check box 
+    - **Auto-Inflate Maximum Throughput Units**: 20
     - Leave other options to their default settings
 
     > **Note**: The creation of the Event Hub Namespace takes approximately 1 minute.
 
 ### Task 2: Create and configure an Event Hub
 
-1. In the Azure portal, in the blade, click **Resource groups**, and then click **awrgstudxx**, and then click on **awdlsstudxx**, where **xx** are your initials
+1. In the Azure portal, in the blade, click **Resource groups**, and then click **awrgstudxx**, where **xx** are your initials
 
-1. Click on **xx-socialtwitter-eh**, where **xx** are your initials.
+1. Click on **xx-phoneanalysis-ehns**, where **xx** are your initials.
 
-1. In the **xx-socialtwitter-eh** screen, click on **+ Event Hubs**.
+1. In the **xx-phoneanalysis-ehns** screen, click on **+ Event Hubs**.
 
-1. Provide the name **socialtwitter-eh**, and then select **Create**.
+1. Provide the name **xx-phoneanalysis-eh**, and then select **Create**.
 
     > **Note**: You will receive a message stating that the Event Hub is created after about 10 seconds
 
 ### Task 3: Configure Event Hub security
 
-1. In the Azure portal, in the **xx-socialtwitter-eh**, where **xx** are your initials. Scroll to the bottom of the window, and click on **socialtwitter-eh** event hub.
+1. In the Azure portal, in the **xx-phoneanalysis-ehns** screen, where **xx** are your initials. Scroll to the bottom of the window, and click on **xx-phoneanalysis-eh** event hub.
 
-1. To grant access to the event hub, click **Shared access policies**.
+1. To grant access to the event hub, in the blade on the left click **Shared access policies**.
 
-1. Under the **socialtwitter-eh - Shared access policies** screen, create a policy with **Manage** permissions by selecting **+ Add**. Give the policy the name of **socialtwitter-eh-sap** , check **Manage**, and then click **Create**.
+1. Under the **xx-phoneanalysis-eh - Shared access policies** screen, create a policy with **Manage** permissions by selecting **+ Add**. Give the policy the name of **xx-phoneanalysis-eh-sap** , check **Manage**, and then click **Create**.
 
-1. Click on your new policy **socialtwitter-eh-sap** after it has been created, and then select the copy button for the **CONNECTION STRING - PRIMARY KEY** and paste the CONNECTION STRING - PRIMARY KEY  into Notepad, this is needed later in the exercise.
+1. Click on your new policy **xx-phoneanalysis-eh-sap** after it has been created, and then select the copy button for the **CONNECTION STRING - PRIMARY KEY** and paste the CONNECTION STRING - PRIMARY KEY  into Notepad, this is needed later in the exercise.
+
+>**NOTE**: The connection string looks as follows:
+> ```CMD
+ >Endpoint=sb://<Your event hub namespace>.servicebus.windows.net/;SharedAccessKeyName=<Your shared access policy name>;SharedAccessKey=<generated key>;EntityPath=<Your event hub name>
+ >```
+> Notice that the connection string contains multiple key-value pairs separated with semicolons: Endpoint, SharedAccessKeyName, SharedAccessKey, and EntityPath.
 
 1. Close down the Event hub screens in the portal
 
 > **Result**: After you completed this exercise, you have created an Azure Event Hub within an Event Hub Namespace and set the security for the Event Hub that can be used to provide access to the service.
 
-## Exercise 3: Processing Data with Stream Analytics Jobs
+## Exercise 3: Starting the telecom event generator application
 
-Estimated Time: 30 minutes
+Estimated Time: 15 minutes
 
 Individual exercise
 
 The main tasks for this exercise are as follows:
 
-1. Create a Twitter developer account
+1. Updates the application connection string
 
-1. Configure the Twitter access keys
+1. Run the application
 
-1. Configure and start the Twitter client application
+### Task 1: Updates the application connection string.
+
+1. Browse to the location **\Labfiles\Starter\DP-200.6\DataGeneratorr**
+
+1. Open the **telcodatagen.exe.config** file in a text editor of your choice
+
+1. Update the <appSettings> element in the config file with the following details:
+
+    - Set the value of the **EventHubName** key to the value of the **EntityPath** in the connection string.
+    - Set the value of the **Microsoft.ServiceBus.ConnectionString** key to the connection string **without the EntityPath value** (don't forget to remove the semicolon that precedes it).
+
+1. Save the file.
+
+### Task 2: Run the application.
+
+1. Click on **Start**, and type **CMD** 
+
+1. Right click **Command Prompt**, click **Run as Administer**, and in the User Access Control screen, click **Yes**
+
+1. In Command Prompt, browse to the location **\Labfiles\Starter\DP-200.6\DataGenerator**
+
+1. Type in the following command: 
+
+    ```CMD
+    telcodatagen.exe 1000 0.2 2
+    ```
+
+    > NOTE: This command takes the following parameters:
+Number of call data records per hour.
+Percentage of fraud probability, which is how often the app should simulate a fraudulent call. The value 0.2 means that about 20% of the call records will look fraudulent.
+Duration in hours, which is the number of hours that the app should run. You can also stop the app at any time by ending the process (Ctrl+C) at the command line.
+
+After a few seconds, the app starts displaying phone call records on the screen as it sends them to the event hub. The phone call data contains the following fields:
+
+|Record | Definition |
+|-|-|
+|CallrecTime |The timestamp for the call start time.|
+|SwitchNum |The telephone switch used to connect the call. For this example, the switches are strings that represent the country/region of origin (US, China, UK, Germany, or Australia).|
+|CallingNum |The phone number of the caller.|
+|CallingIMSI |The International Mobile Subscriber Identity (IMSI). It's a unique identifier of the caller.|
+|CalledNum | The phone number of the call recipient.|
+|CalledIMSI| International Mobile Subscriber Identity (IMSI). It's a unique identifier of the call recipient.|
+
+1. Minimize the command prompt window. 
+
+> **Result**: After you completed this exercise, you have conmfigured an application to generate data to minimic phone calls recieved by a call center.
+
+## Exercise 4: Processing Data with Stream Analytics Jobs
+
+Estimated Time: 15 minutes
+
+Individual exercise
+
+The main tasks for this exercise are as follows:
 
 1. Provision a Stream Analytics job.
 
 1. Specify the a Stream Analytics job input.
 
-1. Defining a Stream Analytics query.
-
 1. Specify the a Stream Analytics job output.
 
-1. Modify a Stream Analytics query.
+1. Defining a Stream Analytics query.
 
 1. Start the Stream Analytics job.
 
 1. Validate streaming data is collected
 
-### Task 1: Create a Twitter developer account.
-
-1. Open a new tab in your browser and go to https://developer.twitter.com/en/apps/ and login with your twitter account to set up a Twitter application.
-
-1. In **Apps** page, to the right, click on the button **Create an app**.
-
-1. In the "Please apply for a twitter account", click on **Apply**.
-
-1. In the "User profile" page, confirm your twitter account is the correct account to associate with a developer account, and click on **Continue**.
-
-1. In the “Account details” page, under "Who are you requesting access for?" click **I am requesting access for my own personal use**. Under "Account name", type **learn how to code as *twitter_name***. Finally, select **Primary country of operation** as the country where you reside. Click on **Continue**.
-
-    > **Note**: please remember to observe all applicable laws and ethics for your country of operation
-
-1. In the "Tell us about your project" page, choose an option for "What use case(s) are you interested in?". For the purpose of this course select **Student**. In the "Describe in your own words what you are building", spend 300 words to explain why this is being used. below is an example:
-
-> **Note**: the questions and options in this screen can change.
-
-    >1. I’m using Twitter’s APIs to learn how to embed twitter statements within a learning application. this account is being used to learn how to do that
-    >2.  I plan to analyze Tweets to understand how to count and read streaming tweets in real time as part of a learning exercise
-    >3. I do not intend on interacting with other peoples tweets in the form of retweeting or liking content. I will be reading and counting tweets and looking at sentiment.
-    >4. Both individual and aggregate tweets will be analysed in the application 
-
-1. Finally, select the option for the question "Will your product, service, or analysis make Twitter content or derived information available to a government entity?" and then click on **Continue**.
-
-1. Read and agree to the Terms of Service by clicking **Accept** if you are happy to do so. Then select the checkboxes as you see fit. Click on **Submit application** 
-
-1. Check your inbox for the verification email, click on the **confirm your email** within the email to complete the process. You will be directed back to twitter to a Welcome screen.
-
-### Task 2: Configure the Twitter access keys
-
-1. If you are not at the Twitter welcome screen, Open a new tab in your browser and go to https://developer.twitter.com and login with your twitter account.
-
-1. In the "Welcome" or "Apps" page, click on the button **Create an app**.
-
-1. In the “Create an App" page, provide the following information and click on **Create an App**:
-    - **name**: xx-social-app, where xx are your initials
-    - **Application description**: add a description such as "used to collect and aggregate tweets"
-    - **website URL** a personal address that you can use for the application.
-    - **Tell us how this app will be used**: write text that outlines the app is a demo app to learn how to use streaming data
-
-1. Review the Developer terms and click on **Create**. A new page will appear with the title of you application name.
-
-1. Click on the page tab named **Keys and tokens**
-
-1. Under Access token & access token secret, Click on the **Create** button.
-
-    >**Note**: An authorized access token and secret will be generated for your account and the current application.
-
-1. Copy the following keys to Notepad file you had previously opened:
-    - Consumer Key (API Key)
-    - Consumer Secret (API Secret)
-    - Access Token
-    - Access Token Secret
-
-### Task 3: Configure and start the Twitter client application
-
-1. Double click the **TwitterWPFClient.exe** application in the **Allfiles\Labfiles\Starter\DP-200.6\Twitter client\TwitterWPFClient\TwitterWPFClient** location. You can also download the [TwitterWPFClient here](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TwitterClient).
-
-1. Enter your data from Notepad into the TwitterWPFClient.exe application.
-    - **Twitter Consumer Key (API Key)**: Your twitter consumer key
-    - **Twitter Consumer Secret (API Secret)**: Your twitter consumer secret
-    - **Twitter Access Token**: Your twitter access token
-    - **Twitter Access Secret**: Your twitter access secret
-    - **Azure EventHub Name**: socialtwitter-eh.
-    - **Azure Event Hub Connection string**: Endpoint=sb://xx-socialtwitter-eh.servicebus.windows.net/;SharedAccessKeyName=xx-social-eh-sap;SharedAccessKey=<Paste in the CONNECTION STRING - PRIMARY KEY from Notepad>  
-
-        >**Important**: IT IS IMPORTANT TO REMOVE ;EntityPath=socialtwitter-eh AT THE END OF THE STRING.
-
-    - **Search Groups** define which keywords you want to determine sentiment for. An example could be “#Brexit”, or brexit, or you can add multiple keywords separated by a comma.
-
-1. Click the **Play** button in the **TwitterWPFClient.exe** application, wait until you see tweets appearing in the console and leave the application running.
-
-      > **Note**: The **TwitterWPFClient.exe** application capture the date, search term sentiment score, twitter name and tweet details for the search term defined. 
-
-1. Keep all applications running
-
-### Task 4: Provision a Stream Analytics job.
+### Task 1: Provision a Stream Analytics job.
 
 1. Go back to the Azure portal, select **+ Create a resource**, type **STREAM**, and then click the **Stream Analytics Job**, and then click **CREATE**.
 1. 
 1. In the **New Stream Analytics job** screen, fill out the following details and then click on **Create**:
-    - **Job name**: socialtwitter-asa-job.
+    - **Job name**: phoneanalysis-asa-job.
     - **Subscription**: select your subscription
     - **Resource group**: awrgstudxx
     - **Location**: choose a location nearest to you.
     - Leave other options to their default settings
 
-    > **Note**: You will receive a message stating that the Stream Analytics job is created after about 10 seconds
+    > **Note**: You will receive a message stating that the Stream Analytics job is created after about 10 seconds. It may take a couple of minutes to update in the Azure portal.
 
-### Task 5: Specify the a Stream Analytics job input.
+### Task 2: Specify the a Stream Analytics job input.
 
-1. In the Azure portal, in the blade, click **Resource groups**, and then click **awrgstudxx**, and then click on **awdlsstudxx**, where **xx** are your initials
+1. In the Azure portal, in the blade, click **Resource groups**, and then click **awrgstudxx**,  where **xx** are your initials.
 
-1. Click on **socialtwitter-asa-job**.
+1. Click on **phoneanalysis-asa-job**.
 
-1. In your **socialtwitter-asa-job** Stream Analytics job window, click **Inputs**.
+1. In your **phoneanalysis-asa-job** Stream Analytics job window, in the left hand blade, under **Job topology**, click **Inputs**.
 
 1. In the **Inputs** screen, click **+ Add stream input**, and then click **Event Hubs**.
 
 1. In the Event Hub screen, type in the following values and click the **Save** button.
-    - **Input alias**: Enter a name for this job input as TwitterStream.
+    - **Input alias**: Enter a name for this job input as **PhoneStream**.
     - **Select Event Hub from your subscriptions**: checked
     - **Subscription**: Your subscription name
-    - **Event Hub Namespace**: xx-socialtwitter-eh
-    - **Event Hub Name**: Use existing named socialtwitter-eh
-    - **Event Hub Policy Name**: socialtwitter-eh-sap
+    - **Event Hub Namespace**: xx-phoneanalysis-ehns
+    - **Event Hub Name**: Use existing named xx-phoneanalysis-eh
+    - **Event Hub Policy Name**: xx-phoneanalysis-eh-sap
     - Leave remaining options to their default
 
-1. Once completed, the TwitterStream Input job will appear under the input window. Close the input widow to return to the Streaming Analytics Job Page
+1. Once completed, the **PhoneStream** Input job will appear under the input window. Close the input widow to return to the Resource Group Page
 
-### Task 6: Specify the a Stream Analytics job output.
+### Task 3: Specify the a Stream Analytics job output.
 
-1. In your **socialtwitter-asa-job** Stream Analytics job window, click **Outputs**.
+1. Click on **phoneanalysis-asa-job**.
+
+1. In your **phoneanalysis-asa-job** Stream Analytics job window, in the left hand blade, under **Job topology**, click **Outputs**.
 
 1. In the **Outputs** screen, click **+ Add**, and then click **Blob Storage**.
 
 1. In the **Blob storage** window, type or select the following values in the pane:
-- **Output alias**: Output
+- **Output alias**: PhoneCallRefData
 - **Select Event Hub from your subscriptions**: checked
 - **Subscription**: Your subscription name
 - **Storage account**: awsastudxx, where xx is your initials
-- **Container**: Use existing and select tweets
+- **Container**: Use existing and select phonecalls
 
 1. Leave the rest of the entries as default values. Finally, click **Save***.
 
-1. Close the output screen to return to the Stream Analytics job page
+1. Close the output screen to return to the Resource Group page
 
-### Task 7: Defining a Stream Analytics query.
+### Task 4: Defining a Stream Analytics query.
 
-1. In your **socialtwitter-asa-job** window, in the **Query** screen in the middle of the window, click on ** Edit query**
+1. Click on **phoneanalysis-asa-job**.
+
+1. In your **phoneanalysis-asa-job** window, in the **Query** screen in the middle of the window, click on ** Edit query**
 
 1. Replace the following query in the code editor:
 
@@ -285,70 +273,39 @@ The main tasks for this exercise are as follows:
 1. Replace with
 
     ```SQL
-    SELECT 
-     [Topic]
-    ,[SentimentScore]
-    ,[created_at]
-    ,[Author]
-    ,[text]
-    FROM [TwitterStream]
+    SELECT System.Timestamp AS WindowEnd, COUNT(*) AS FraudulentCalls
+    INTO "PhoneCallRefData"
+    FROM "PhoneStream" CS1 TIMESTAMP BY CallRecTime
+    JOIN "PhoneStream" CS2 TIMESTAMP BY CallRecTime
+    ON CS1.CallingIMSI = CS2.CallingIMSI
+    AND DATEDIFF(ss, CS1, CS2) BETWEEN 1 AND 5
+    WHERE CS1.SwitchNum != CS2.SwitchNum
+    GROUP BY TumblingWindow(Duration(second, 1))
     ```
+
+    > NOTE: This query performs a self-join on a 5-second interval of call data. To check for fraudulent calls, you can self-join the streaming data based on the CallRecTime value. You can then look for call records where the CallingIMSI value (the originating number) is the same, but the SwitchNum value (country/region of origin) is different. When you use a JOIN operation with streaming data, the join must provide some limits on how far the matching rows can be separated in time. Because the streaming data is endless, the time bounds for the relationship are specified within the ON clause of the join using the DATEDIFF function.
+    This query is just like a normal SQL join except for the DATEDIFF function. The DATEDIFF function used in this query is specific to Stream Analytics, and it must appear within the ON...BETWEEN clause.
 
 1. Select Save.
 
 1. Close the Query window to return to the Stream Analytics job page.
 
 
-### Task 8: Defining a Stream Analytics query.
+### Task 5: Start the Stream Analytics job
 
-1. In your **socialtwitter-asa-job** window, in the **Query** screen in the middle of the window, click on **Edit query**
-
-1. Replace the following query in the code editor:
-
-    ```SQL
-    SELECT 
-     [Topic]
-    ,[SentimentScore]
-    ,[created_at]
-    ,[Author]
-    ,[text]
-    FROM [TwitterStream]
-    ```
-
-1. Replace with
-
-    ```SQL
-    SELECT 
-     [Topic]
-    ,[SentimentScore]
-    ,[created_at]
-    ,[Author]
-    ,[text]
-    INTO [Outputs]
-    FROM [TwitterStream]
-    ```
-
-1. Select Save.
-
-1. Close the Query window to return to the Stream Analytics job page.
-
-### Task 9: Start the Stream Analytics job
-
-1. In your **socialtwitter-asa-job** window, in the **Query** screen in the middle of the window, click on **Start**
+1. In your **phoneanalysis-asa-job** window, in the **Query** screen in the middle of the window, click on **Start**
  
 1. In the **Start Job** dialog box that opens, click **Now**, and then click **Start**. 
 
->**Note**: In your **socialtwitter-asa-job** window, a message appears after a minute that the job has started, and the started field changes to the time started
+>**Note**: In your **phoneanalysis-asa-job** window, a message appears after a minute that the job has started, and the started field changes to the time started
 
 >**Note**: Leave this running for 2 minutes so that data can be captured.
 
-### Task 10: Validate streaming data is collected
+### Task 6: Validate streaming data is collected
 
 1. In the Azure portal, in the blade, click **Resource groups**, and then click **awrgstudxx**, and then click on **awsastudxx**, where **xx** are your initials.
 
-1. In the Azure portal, click **Blobs** screen.
-
-1. In the Azure portal, in the **awsastudxx - Blobs** screen, click on the **tweets** item in the list.
+1. In the Azure portal, click **Containers** box, and then click on the container named **phonecalls**.
 
 1. Confirm that a JSON file appears, and note the size column.
 
@@ -356,12 +313,12 @@ The main tasks for this exercise are as follows:
 
     >**Note**: You could download the file to query the JSON data, you could also output the data to Power BI.
 
-> **Result**: After you completed this exercise, you have configured Azure Stream Analytics to collect streaming data into an JSON file store in Azure Blob. You have done this with streaming twitter data.
+> **Result**: After you completed this exercise, you have configured Azure Stream Analytics to collect streaming data into an JSON file store in Azure Blob. You have done this with streaming phone call data.
 
 ## Close down
 
-1. In the Azure portal, in the blade, click **Resource groups**, and then click **awrgstudxx**, and then click on **socialtwitter-asa-job**.
+1. In the Azure portal, in the blade, click **Resource groups**, and then click **awrgstudxx**, and then click on **phoneanalysis-asa-job**.
 
-1. In the **socialtwitter-asa-job** screen, click on **Stop**. In the **Stop Streaming job** dialog box, click on **Yes**.
+1. In the **phoneanalysis-asa-job** screen, click on **Stop**. In the **Stop Streaming job** dialog box, click on **Yes**.
 
-1. Close down the **TwitterWPFClient.exe** application.
+1. Close down the Command Prompt application.

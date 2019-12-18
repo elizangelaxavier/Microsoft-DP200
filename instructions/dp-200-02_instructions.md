@@ -137,6 +137,8 @@ The main tasks for this exercise are as follows:
 
    > **Note**: The creation of the container is immediate and will appear in the list of the **awrgstudxx - Blobs** screen.
 
+1. Repeat steps 4 -5 to create a container named **phonecalls** with the public access level of **Private (no anonymous access)**
+
 1. Repeat steps 4 -5 to create a container named **tweets** with the public access level of **Private (no anonymous access)**
 
 ### Task 4: Upload some graphics to the images container of the storage account.
