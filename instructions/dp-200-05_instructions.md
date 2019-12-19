@@ -49,29 +49,40 @@ The main task for this exercise are as follows:
 
 1. In the Azure portal, navigate to the **+ Create a resource** blade.
 
-1. In the New blade, navigate to the **Search the Marketplace** text box, and type the word **SQL Database**. Click **SQL Database** in the list that appears.
+1. In the New screen, click the **Search the Marketplace** text box, and type the word **SQL Database**. Click **SQL Database** in the list that appears.
 
-1. In the **SQL Database** blade, click **Create**.
+1. In the **SQL Database** screen, click **Create**.
 
-1. From the **Create SQL Database** blade, create an Azure SQL Database with the following settings:
+1. From the **Create SQL Database** screen, create an Azure SQL Database with the following settings:
 
-    - Subscription: the name of the subscription you are using in this lab
-
-    - In **Additional setting** tab, under data source, click **Sample** . The AdventureworksLT sample database is selected automatically. Click the **Basics** tab once this has been done.
+    - In the Project details section, type in the following information
     
-    - Resource group name: **awrgstudxx**, where **xx** are your initials.
+        - **Subscription**: the name of the subscription you are using in this lab
 
-    - Database name: type in **AdventureworksLT**
+        - **Resource group**: **awrgstudxx**, where **xx** are your initials.
 
-    - Server: Create a new server by clicking **Create new** with the following settings and click on **OK**:
-        - Server name: **sqlservicexx**, where **xx** are your initials
-        - Server admin login: **xxsqladmin**, where **xx** are your initials
-        - Password: **Pa55w.rd**
-        - Confirm Password: **Pa55w.rd**
-        - Location: choose a **location** near to you.
-        - click on **OK**
+    - Click on the  **Additional setting** tab, click **Sample** . The AdventureworksLT sample database is selected automatically. 
+    
+    - Click the **Basics** tab once this has been done.
+    
+    - In the Database details section, type in the following information
+    
+        - Database name: type in **AdventureworksLT**
+     
+        - Server: Create a new server by clicking **Create new** with the following settings and click on **OK**:
+            - **Server name**: **sqlservicexx**, where **xx** are your initials
+            - **Server admin login**: **xxsqladmin**, where **xx** are your initials
+            - **Password**: **Pa55w.rd**
+            - **Confirm Password**: **Pa55w.rd**
+            - **Location**: choose a **location** near to you.
+            - click on **OK**
 
-    - Leave the remaining settings to their defaults
+                ![Creating a server instance in the Azure portal](Linked_Image_Files/M05-E01-T01-img1.png)
+
+            - Leave the remaining settings to their defaults, and then click on **OK**
+            
+
+    ![Creating a SQL Database in the Azure portal](Linked_Image_Files/M05-E01-T01-img02.png)
 
 1. In the **Create SQL Database*** blade, click **Review + create**.
 
@@ -99,28 +110,36 @@ The main tasks for this exercise are as follows:
 
 1. In the Azure portal, click **+ Create a resource**.
 
-1. In the New blade, navigate to the **Search the Marketplace** text box, and type the word **SQL**. Click **Azure Synapse Analytics (formerly SQL DW)** in the list that appears.
+1. In the New blade, navigate to the **Search the Marketplace** text box, and type the word **Synapse**. Click **Azure Synapse Analytics (formerly SQL DW)** in the list that appears.
 
 1. In the **Azure Synapse Analytics (formerly SQL DW)** blade, click **Create**.
 
 1. From the **SQL Data Warehouse** blade, create an Azure Synapse Analytics  with the following settings:
 
-    - Subscription: the name of the subscription you are using in this lab
+    - In the Project details section, type in the following information
 
-    - In **Additional setting** tab, under data source, click **Sample**. Clivk on the **Basics** tab
+        - **Subscription**: the name of the subscription you are using in this lab
 
-    - Resource group name: **awrgstudxx**, where **xx** are your initials.
+        - **Resource group**: **awrgstudxx**, where **xx** are your initials.
 
-    - Database warehouse name: **Warehousexx**, where **xx** are your initials.
+    - In **Additional setting** tab, under data source, click **Sample**.
 
-    - Server: Create a new server by clicking **Create new** with the following settings and click on **OK**:
-        - Server name: **dwhservicexx**, where **xx** are your initials
-        - Server admin login: **xxsqladmin**, where **xx** are your initials
-        - Password: **Pa55w.rd**
-        - Confirm Password: **Pa55w.rd**
-        - Location: choose a **location** near to you.
-        - Select the checkbox to Allow Azure services to access server
-        - click on **OK**
+    - Click the **Basics** tab once this has been done.
+    
+    - In the Database details section, type in the following information
+
+        - **Database warehouse name**: **Warehousexx**, where **xx** are your initials.
+
+        - **Server**: Create a new server by clicking **Create new** with the following settings and click on **OK**:
+            - **Server name**: **dwhservicexx**, where **xx** are your initials
+            - **Server admin login**: **xxsqladmin**, where **xx** are your initials
+            - **Password**: **Pa55w.rd**
+            - **Confirm Password**: **Pa55w.rd**
+            - **Location**: choose a **location** near to you.
+            - Select the checkbox to Allow Azure services to access server
+            - click on **OK**
+
+            ![Creating a server instance in the Azure portal](Linked_Image_Files/M05-E02-T01-img01.png)
 
     - Performance Level: Click **Select performance level** and select **Gen2 DW100C**
 
