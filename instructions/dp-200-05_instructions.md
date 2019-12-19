@@ -159,11 +159,13 @@ The main tasks for this exercise are as follows:
 
 1. In the dwhservicexx - Firewalls and virtual networks screen, click on the option **+ Add client IP**, and then click on **Save**.
 
+    ![Creating a server firewall settings in the Azure portal](Linked_Image_Files/M05-E02-T02-img01.png)
+
     > **Note**: You will receive a message stating that the the server firewall rules have been successfully updated
 
 > **Result**: After you completed this exercise, you have created an Azure  Synapse Analytics  instance and configures the server firewall to enable connections against it.
 
-## Exercise 3: Creating an Azure Synapse Analytics 
+## Exercise 3: Creating an Azure Synapse Analytics data warehouse and tables
 
 Estimated Time: 25 minutes
 
@@ -179,7 +181,7 @@ The main tasks for this exercise are as follows:
 
     > **Note**: If you are not familiar with Transact-SQL, statements are available for the following labs in the following location **Allfiles\Labfiles\Starter\DP-200.5\SQL DW Files**
 
-### Task 1: Install SQL Server Management Studio and connect to a SQL Data Warehouse instance.
+### Task 1: Install SQL Server Management Studio and connect to a Azure Synapse Analytics instance.
 
 1. In the Azure Portal, in the **sqlservicexx - Firewalls and virtual networks**, in the blade, click on **Properties**
 
@@ -190,16 +192,16 @@ The main tasks for this exercise are as follows:
 1. On the windows desktop, click on the **Start**, and type **"SQL Server"** and then click on **MIcrosoft SQL Server Management Studio 17**
 
 1. In the **Connect to Server** dialog box, fill in the following details
-    - Server Name: **sqlservicexx.database.windows.net**
+    - Server Name: **dwhservicexx.database.windows.net**
     - Authentication: **SQL Server Authentication**
     - Username: **xxsqladmin**
     - Password: **P@ssw0rd**
 
 1. In the **Connect to Server** dialog box, click **Connect** 
 
-### Task 2: Create a SQL Data Warehouse database.
+### Task 2: Create a Data Warehouse database.
 
-1. In **SQL Server Management Studio**, in Object Explorer, right click **sqlservicexx.database.windows.net** and click on **New Query**. 
+1. In **SQL Server Management Studio**, in Object Explorer, right click **dwhservicexx.database.windows.net** and click on **New Query**. 
 
 1. In the query window, create a DataWarehouse database named **DWDB**, with a service objective of DW100 and a maximum size of 1024GB.
 
@@ -212,13 +214,15 @@ The main tasks for this exercise are as follows:
     );
     ```
 
-    > **Note**: The creation of the database takes approximately 2 minutes.
+1. In **SQL Server Management Studio**, click **Execute**. 
 
-1. In the **awdlsstudxx** blade, click on **Access keys**, and then click on the copy icon next to the **Storage account name** and paste it into Notepad.
+    > **Note**: The creation of the database takes approximately 2 minutes. Once complete, you will see the following screen.
+
+    ![Creating a data warehouse database in SQL Server Management Studio](Linked_Image_Files/M05-E03-T02-img01.png)
 
 ### Task 3: Create SQL Data Warehouse tables.
 
-1. In **SQL Server Management Studio**, in Object Explorer, right click **sqlservicexx.database.windows.net** and click on **New Query**.
+1. In **SQL Server Management Studio**, in Object Explorer, right click **dwhservicexx.database.windows.net** and click on **New Query**.
 
     >**Note**: If you are unfamiliar with Transact-SQL, there is a script in the Allfiles\Solution\DP-200.5\folder named **Exercise3 Task3Step2 script.sql**. It contains the bulk of the code required to create the tables, but you do have to complete the code by selecting the distribution type to use for each table 
 
@@ -233,7 +237,7 @@ The main tasks for this exercise are as follows:
 
 1. In **SQL Server Management Studio**, click on **Execute**.
 
-1. In **SQL Server Management Studio**, in Object Explorer, right click **sqlservicexx.database.windows.net** and click on **New Query**.
+1. In **SQL Server Management Studio**, in Object Explorer, right click **dwhservicexx.database.windows.net** and click on **New Query**.
 
 1. Create a table named **dbo.Products** with a **clustered columnstore** index with a distribution of **round robin** with the following columns:
 
@@ -252,7 +256,7 @@ The main tasks for this exercise are as follows:
 
 1. In **SQL Server Management Studio**, click on **Execute**.
 
-1. In **SQL Server Management Studio**, in Object Explorer, right click **sqlservicexx.database.windows.net** and click on **New Query**.
+1. In **SQL Server Management Studio**, in Object Explorer, right click **dwhservicexx.database.windows.net** and click on **New Query**.
 
 1. Create a table named **dbo.FactSales** with a **clustered columnstore** index with a distribution of **Hash** on the **SalesUnit** with the following columns:
 
@@ -264,11 +268,13 @@ The main tasks for this exercise are as follows:
     | UserPreferenceId | int | NULL|
     | SalesUnit | int | NULL|
 
-1. In **SQL Server Management Studio**, click on **Execute**.
+1. In **SQL Server Management Studio**, click on **Execute**. This screen will look as follows
+
+    ![Creating data warehouse tables in SQL Server Management Studio](Linked_Image_Files/M05-E03-T03-img01.png)
 
 > **Result**: After you completed this exercise, you have installed SQL Server Management Studio to create a data warhouse named DWDB and three tables named Users, Products and FactSales.
 
-## Exercise 4: Using PolyBase to Load Data into Azure  Synapse Analytics 
+## Exercise 4: Using PolyBase to Load Data into Azure Synapse Analytics 
 
 Estimated Time: 10 minutes
 
@@ -282,25 +288,31 @@ The main tasks for this exercise are as follows:
 
 ### Task 1: Collect Azure Blob account name and key details
 
-1. In the Azure portal, click on **Resource groups** and then click on **awrgstudxx**, and then click on **awsastudxx** where xx are the initials of your name.
+1. In the Azure portal, navigate to **Resource groups** and then click on **awrgstudxx**, and then click on **awsdlstudxx** where xx are the initials of your name.
 
-1. In the **awsastudxx** screen, click **Access keys**. Click on the icon next to the **Storage account name** and paste it into Notepad.
+1. In the **awsdlstudxx** screen, click **Access keys**. Click on the icon next to the **Storage account name** and paste it into Notepad.
 
-1. In the **awsastudxx - Access keys** screen, under **key1**, Click on the icon next to the **Key** and paste it into Notepad.
+1. In the **awsdlstudxx - Access keys** screen, under **key1**, Click on the icon next to the **Key** and paste it into Notepad.
 
 ### Task 2: Create a dbo.Dates table using PolyBase from Azure Blob
 
-1. In **SQL Server Management Studio**, in Object Explorer, right click **sqlservicexx.database.windows.net** and click on **New Query**.
+1. In **SQL Server Management Studio**, in Object Explorer, right click **dwhservicexx.database.windows.net** and click on **New Query**.
 
-1. Create a **master key** against the **DWDB** database.
+1. Ensure that in the available databases, that **DWDB** is selected.
+
+1. Create a **master key** against the **DWDB** database. Type in the following code:
 
     ```SQL
     CREATE MASTER KEY;
     ```
 
+1. Press **ENTER** twice on ther keyboard
+
 1. Create a database scoped credential named **AzureStorageCredential** with the following details:
     - IDENTITY: **MOCID**
     - SECRET: **The access key of your storage account**
+
+    Type in the following code:
 
     ```SQL
     CREATE DATABASE SCOPED CREDENTIAL AzureStorageCredential
@@ -310,7 +322,12 @@ The main tasks for this exercise are as follows:
 ;
     ```
 
-1. In **SQL Server Management Studio**, highlight both statements and then click on **Execute**.
+1. Press **ENTER** twice on ther keyboard
+
+1. In **SQL Server Management Studio**, highlight both statements and then click on **Execute**. The following appears on the screen:
+
+    ![Creating a database scoped credential in SQL Server Management Studio](Linked_Image_Files/M05-E04-T01-img01.png)
+
 
 1. In **SQL Server Management Studio**, in the Query window, type in code that will create an external data source named **AzureStorage** for the Blob storage account and data container created in with a type of **HADOOP** that makes use of the ****AzureStorageCredential**
 
@@ -322,6 +339,11 @@ The main tasks for this exercise are as follows:
         CREDENTIAL = AzureStorageCredential
     );
     ```
+1. Press **ENTER** twice on the keyboard
+
+1. In **SQL Server Management Studio**, highlight the statement and then click on **Execute**. The following appears on the screen:
+
+    ![Creating an external data source in SQL Server Management Studio](Linked_Image_Files/M05-E04-T01-img02.png)
 
 1. In **SQL Server Management Studio**, in the Query window, type in code that will create an external file format named **TextFile** with a formattype of **DelimitedText** and a filed terminator of **comma**.
 
@@ -332,6 +354,12 @@ The main tasks for this exercise are as follows:
         FORMAT_OPTIONS (FIELD_TERMINATOR = ',')
     );
     ```
+
+1. Press **ENTER** twice on the keyboard
+
+1. In **SQL Server Management Studio**, highlight the statement and then click on **Execute**. The following appears on the screen:
+
+    ![Creating an external file format in SQL Server Management Studio](Linked_Image_Files/M05-E04-T01-img03.png)
 
 1. In **SQL Server Management Studio**, highlight the statement and then click on **Execute**.
 
@@ -374,13 +402,21 @@ The main tasks for this exercise are as follows:
     );
     ```
 
-1. In **SQL Server Management Studio**, highlight the statement and then click on **Execute**.
+1. Press **ENTER** twice on the keyboard
+
+1. In **SQL Server Management Studio**, highlight the statement and then click on **Execute**. You will see the following in your screen:
+
+    ![Creating an external table in SQL Server Management Studio](Linked_Image_Files/M05-E04-T01-img04.png)
 
 1. Test that the table is created by running a select statement against it
 
     ```SQL
     SELECT * FROM dbo.DimDate2External;
     ```
+
+1. Press **ENTER** twice on the keyboard
+
+1. In **SQL Server Management Studio**, highlight the statement and then click on **Execute**.
 
 1. In **SQL Server Management Studio**, in the Query window, type in a **CTAS** statement that creates a table named **dbo.Dates** with a **columnstore** index and a **distribution** of **round robin** that loads data from the **dbo.DimDate2External** table.
 
