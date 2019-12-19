@@ -82,7 +82,7 @@ The main task for this exercise are as follows:
             - Leave the remaining settings to their defaults, and then click on **OK**
             
 
-    ![Creating a SQL Database in the Azure portal](Linked_Image_Files/M05-E01-T01-img02.png)
+                ![Creating a SQL Database in the Azure portal](Linked_Image_Files/M05-E01-T01-img02.png)
 
 1. In the **Create SQL Database*** blade, click **Review + create**.
 
@@ -139,7 +139,7 @@ The main tasks for this exercise are as follows:
             - Select the checkbox to Allow Azure services to access server
             - click on **OK**
 
-            ![Creating a server instance in the Azure portal](Linked_Image_Files/M05-E02-T01-img01.png)
+                ![Creating a server instance in the Azure portal](Linked_Image_Files/M05-E02-T01-img01.png)
 
     - Performance Level: Click **Select performance level** and select **Gen2 DW100C**
 
@@ -223,6 +223,8 @@ The main tasks for this exercise are as follows:
 ### Task 3: Create SQL Data Warehouse tables.
 
 1. In **SQL Server Management Studio**, in Object Explorer, right click **dwhservicexx.database.windows.net** and click on **New Query**.
+
+1. Ensure in the Available databases, that **DWDB** is selected
 
     >**Note**: If you are unfamiliar with Transact-SQL, there is a script in the Allfiles\Solution\DP-200.5\folder named **Exercise3 Task3Step2 script.sql**. It contains the bulk of the code required to create the tables, but you do have to complete the code by selecting the distribution type to use for each table 
 
@@ -335,7 +337,7 @@ The main tasks for this exercise are as follows:
     CREATE EXTERNAL DATA SOURCE AzureStorage
     WITH (
         TYPE = HADOOP,
-        LOCATION = 'wasbs://data@awsastudxx.blob.core.windows.net',
+        LOCATION = 'abfs://data@awsdlstudxx.dfs.core.windows.net',
         CREDENTIAL = AzureStorageCredential
     );
     ```

@@ -75,47 +75,59 @@ The main tasks for this exercise are as follows:
 
 ### Task 1: Create and configure an Event Hub Namespace.
 
-1. In the Azure portal, select **+ Create a resource**, type **Event Hubs**, and then select **Event Hubs** from the resulting search. Then select **Create**.
+1. In the Azure portal, click on the **Home** hyperlink at the top left of the screen.
 
-1. In the Create Namespace blade, type out the following options, then click **Create**:
-    - **Name**: xx-phoneanalysis-ehns, where xx are your initials
-    - **Pricing Tier**: Standard
-    - **Subscription**: Your subscription
-    - **Resource group**: awrgstudxx
+1. In the Azure portal, click on the **+ Create a resource** icon , type **Event Hubs**, and then select **Event Hubs** from the resulting search. In the Event Hubs screen, click **Create**.
+
+1. In the Create Namespace blade, type out the following options:
+    - **Name**: **xx-phoneanalysis-ehn**, where xx are your initials
+    - **Pricing Tier**: **Standard**
+    - **Subscription**: **Your subscription**
+    - **Resource group**: **awrgstudxx**
     - **Location**: select the location closest to you
     - **Enable Auto-Inflate**: click on the check box 
-    - **Auto-Inflate Maximum Throughput Units**: 20
+    - **Auto-Inflate Maximum Throughput Units**: **20**
     - Leave other options to their default settings
 
-    > **Note**: The creation of the Event Hub Namespace takes approximately 1 minute.
+        ![Creating an Event Hub Namespace in Azure portal](Linked_Image_Files/M06-E02-T01-img01.png)
 
+1. Then click **Create**
+
+    > **Note**: The creation of the Event Hub Namespace takes approximately 1 minute.
+   
 ### Task 2: Create and configure an Event Hub
+
+1. In the Azure portal, click on the **Home** hyperlink at the top left of the screen.
 
 1. In the Azure portal, in the blade, click **Resource groups**, and then click **awrgstudxx**, where **xx** are your initials
 
-1. Click on **xx-phoneanalysis-ehns**, where **xx** are your initials.
+1. Click on **xx-phoneanalysis-ehn**, where **xx** are your initials.
 
-1. In the **xx-phoneanalysis-ehns** screen, click on **+ Event Hubs**.
+1. In the **xx-phoneanalysis-ehn** screen, click on **+ Event Hubs**.
 
-1. Provide the name **xx-phoneanalysis-eh**, and then select **Create**.
+1. Provide the name **xx-phoneanalysis-eh**, leave the other settings to thier default values and then select **Create**.
+
+    ![Creating an Event Hub in Azure portal](Linked_Image_Files/M06-E02-T02-img01.png)
 
     > **Note**: You will receive a message stating that the Event Hub is created after about 10 seconds
 
 ### Task 3: Configure Event Hub security
 
-1. In the Azure portal, in the **xx-phoneanalysis-ehns** screen, where **xx** are your initials. Scroll to the bottom of the window, and click on **xx-phoneanalysis-eh** event hub.
+1. In the Azure portal, in the **xx-phoneanalysis-ehn** screen, where **xx** are your initials. Scroll to the bottom of the window, and click on **xx-phoneanalysis-eh** event hub.
 
 1. To grant access to the event hub, in the blade on the left click **Shared access policies**.
 
 1. Under the **xx-phoneanalysis-eh - Shared access policies** screen, create a policy with **Manage** permissions by selecting **+ Add**. Give the policy the name of **xx-phoneanalysis-eh-sap** , check **Manage**, and then click **Create**.
 
+    ![Creating a Shared Access Policy for Event Hubs in Azure portal](Linked_Image_Files/M06-E02-T03-img01.png)
+
 1. Click on your new policy **xx-phoneanalysis-eh-sap** after it has been created, and then select the copy button for the **CONNECTION STRING - PRIMARY KEY** and paste the CONNECTION STRING - PRIMARY KEY  into Notepad, this is needed later in the exercise.
 
->**NOTE**: The connection string looks as follows:
-> ```CMD
- >Endpoint=sb://<Your event hub namespace>.servicebus.windows.net/;SharedAccessKeyName=<Your shared access policy name>;SharedAccessKey=<generated key>;EntityPath=<Your event hub name>
- >```
-> Notice that the connection string contains multiple key-value pairs separated with semicolons: Endpoint, SharedAccessKeyName, SharedAccessKey, and EntityPath.
+    >**NOTE**: The connection string looks as follows:
+    > ```CMD
+    >Endpoint=sb://<Your event hub namespace>.servicebus.windows.net/;SharedAccessKeyName=<Your shared access policy name>;SharedAccessKey=<generated key>;EntityPath=<Your event hub name>
+    >```
+    > Notice that the connection string contains multiple key-value pairs separated with semicolons: Endpoint, SharedAccessKeyName, SharedAccessKey, and EntityPath.
 
 1. Close down the Event hub screens in the portal
 
@@ -135,7 +147,7 @@ The main tasks for this exercise are as follows:
 
 ### Task 1: Updates the application connection string.
 
-1. Browse to the location **\Labfiles\Starter\DP-200.6\DataGeneratorr**
+1. Browse to the location **\Labfiles\Starter\DP-200.6\DataGenerator**
 
 1. Open the **telcodatagen.exe.config** file in a text editor of your choice
 
@@ -164,6 +176,8 @@ The main tasks for this exercise are as follows:
 Number of call data records per hour.
 Percentage of fraud probability, which is how often the app should simulate a fraudulent call. The value 0.2 means that about 20% of the call records will look fraudulent.
 Duration in hours, which is the number of hours that the app should run. You can also stop the app at any time by ending the process (Ctrl+C) at the command line.
+
+    ![Running the Data Generator Application in Command Prompt](Linked_Image_Files/M06-E03-T02-img01.png)
 
 After a few seconds, the app starts displaying phone call records on the screen as it sends them to the event hub. The phone call data contains the following fields:
 
@@ -202,14 +216,16 @@ The main tasks for this exercise are as follows:
 
 ### Task 1: Provision a Stream Analytics job.
 
-1. Go back to the Azure portal, select **+ Create a resource**, type **STREAM**, and then click the **Stream Analytics Job**, and then click **CREATE**.
-1. 
+1. Go back to the Azure portal, navigate and click on the **+ Create a resource** icon, type **STREAM**, and then click the **Stream Analytics Job**, and then click **Create**.
+
 1. In the **New Stream Analytics job** screen, fill out the following details and then click on **Create**:
     - **Job name**: phoneanalysis-asa-job.
     - **Subscription**: select your subscription
     - **Resource group**: awrgstudxx
     - **Location**: choose a location nearest to you.
     - Leave other options to their default settings
+
+        ![Create a Stream Analytics Job in the Azure Portal](Linked_Image_Files/M06-E04-T01-img01.png)
 
     > **Note**: You will receive a message stating that the Stream Analytics job is created after about 10 seconds. It may take a couple of minutes to update in the Azure portal.
 
@@ -227,10 +243,12 @@ The main tasks for this exercise are as follows:
     - **Input alias**: Enter a name for this job input as **PhoneStream**.
     - **Select Event Hub from your subscriptions**: checked
     - **Subscription**: Your subscription name
-    - **Event Hub Namespace**: xx-phoneanalysis-ehns
+    - **Event Hub Namespace**: xx-phoneanalysis-ehn
     - **Event Hub Name**: Use existing named xx-phoneanalysis-eh
     - **Event Hub Policy Name**: xx-phoneanalysis-eh-sap
-    - Leave remaining options to their default
+    - Leave the rest of the entries as default values. Finally, click **Save***.
+
+        ![Create a Job Input Stream Analytics Job in the Azure Portal](Linked_Image_Files/M06-E04-T02-img01.png)
 
 1. Once completed, the **PhoneStream** Input job will appear under the input window. Close the input widow to return to the Resource Group Page
 
@@ -243,13 +261,14 @@ The main tasks for this exercise are as follows:
 1. In the **Outputs** screen, click **+ Add**, and then click **Blob Storage**.
 
 1. In the **Blob storage** window, type or select the following values in the pane:
-- **Output alias**: PhoneCallRefData
-- **Select Event Hub from your subscriptions**: checked
-- **Subscription**: Your subscription name
-- **Storage account**: awsastudxx, where xx is your initials
-- **Container**: Use existing and select phonecalls
+    - **Output alias**: **:PhoneCallRefData**:
+    - **Select Event Hub from your subscriptions**: checked
+    - **Subscription**: Your subscription name
+    - **Storage account**: **:awsastudxx**:, where xx is your initials
+    - **Container**: **:Use existing**: and **:select phonecalls**
+    - Leave the rest of the entries as default values. Finally, click **Save**.
 
-1. Leave the rest of the entries as default values. Finally, click **Save***.
+        ![Create a Job Output in Stream Analytics Job in the Azure Portal](Linked_Image_Files/M06-E04-T03-img01.png)
 
 1. Close the output screen to return to the Resource Group page
 
@@ -257,7 +276,7 @@ The main tasks for this exercise are as follows:
 
 1. Click on **phoneanalysis-asa-job**.
 
-1. In your **phoneanalysis-asa-job** window, in the **Query** screen in the middle of the window, click on ** Edit query**
+1. In your **phoneanalysis-asa-job** window, in the **Query** screen in the middle of the window, click on **Edit query**
 
 1. Replace the following query in the code editor:
 
@@ -286,7 +305,9 @@ The main tasks for this exercise are as follows:
     > NOTE: This query performs a self-join on a 5-second interval of call data. To check for fraudulent calls, you can self-join the streaming data based on the CallRecTime value. You can then look for call records where the CallingIMSI value (the originating number) is the same, but the SwitchNum value (country/region of origin) is different. When you use a JOIN operation with streaming data, the join must provide some limits on how far the matching rows can be separated in time. Because the streaming data is endless, the time bounds for the relationship are specified within the ON clause of the join using the DATEDIFF function.
     This query is just like a normal SQL join except for the DATEDIFF function. The DATEDIFF function used in this query is specific to Stream Analytics, and it must appear within the ON...BETWEEN clause.
 
-1. Select Save.
+    ![Create a Query in Stream Analytics Job in the Azure Portal](Linked_Image_Files/M06-E04-T04-img01.png)
+
+1. Select **Save Query**.
 
 1. Close the Query window to return to the Stream Analytics job page.
 
@@ -308,6 +329,8 @@ The main tasks for this exercise are as follows:
 1. In the Azure portal, click **Containers** box, and then click on the container named **phonecalls**.
 
 1. Confirm that a JSON file appears, and note the size column.
+
+    ![Viewing Files in the Azure Portal](Linked_Image_Files/M06-E04-T06-img01.png)
 
 1. Refresh Microsoft Edge, and when the screen has refreshed note the size of the file
 
