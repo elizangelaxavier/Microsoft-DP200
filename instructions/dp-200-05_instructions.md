@@ -9,29 +9,29 @@
 
 ## Lab overview
 
-The students will be able to provision an Azure SQL Database and Azure SQL Data Warehouse and be able to issue queries against one of the instances that are created. They will be also be able to integrate SQL Data Warehouse with a number of other Data platform technologies and use PolyBase to load data from one data source into Azure SQL Data Warehouse.
+The students will be able to provision an Azure SQL Database and Azure Synapse Analytics server and be able to issue queries against one of the instances that are created. They will be also be able to integrate a data warehouse with a number of other data platform technologies and use PolyBase to load data from one data source into Azure Synapse Analytics.
 
 ## Lab objectives
   
 After completing this lab, you will be able to:
 
 1. Use Azure SQL Database
-1. Describe Azure Data Warehouse
-1. Creating and Querying an Azure SQL Data Warehouse
-1. Using PolyBase to Load Data into Azure SQL Data Warehouse
+1. Describe Azure Synapse Analytics 
+1. Creating and Querying an Azure Synapse Analytics 
+1. Using PolyBase to Load Data into Azure Synapse Analytics 
 
 ## Scenario
   
-You are the senior data engineer at AdventureWorks, and you are working with your team to transition relational database systems from on-premises SQL Servers to relational database located in Azure. You will begin by creating an instance of SQL Server with the company's sample database that will be handed of the junior data engineers to perform some testing of departmental databases.
+You are the senior data engineer at AdventureWorks, and you are working with your team to transition a relational database system from an on-premises SQL Server to a Azure SQL Database located in Azure. You will begin by creating an instance of Azure SQL Database with the company's sample database. Your intention is to hand this instance of to a junior data engineer to perform some testing of departmental databases.
 
-You will then provision a SQL Data Warehouse and test that the provisioning of the server is successful by testing a sample database with a series of queries. You will then use PolyBase to load dimension tables from Azure Blob and Azure Databricks to test that the integration of these data platform technologies with Azure SQL Data Warehouse.
+You will then provision Azure Synapse Analytics server and test that the provisioning of the server is successful by testing a sample database with a series of queries. You will then use PolyBase to load a dimension table from Azure Blob to test that the integration of this data platform technology with Azure Synapse Analytics.
 
 At the end of this lad, you will have:
 
 1. Use Azure SQL Database
-1. Describe Azure Data Warehouse
-1. Creating and Querying an Azure SQL Data Warehouse
-1. Using PolyBase to Load Data into Azure SQL Data Warehouse
+1. Describe Azure Synapse Analytics 
+1. Creating and Querying an Azure Synapse Analytics 
+1. Using PolyBase to Load Data into Azure Synapse Analytics 
 
 > **IMPORTANT**: As you go through this lab, make a note of any issue(s) that you have encountered in any provisioning or configuration tasks and log it in the table in the document located at _\Labfiles\DP-200-Issues-Doc.docx_. Document the Lab number, note the technology, Describe the issue, and what was the resolution. Save this document as you will refer back to it in a later module.
 
@@ -49,29 +49,40 @@ The main task for this exercise are as follows:
 
 1. In the Azure portal, navigate to the **+ Create a resource** blade.
 
-1. In the New blade, navigate to the **Search the Marketplace** text box, and type the word **SQL Database**. Click **SQL Database** in the list that appears.
+1. In the New screen, click the **Search the Marketplace** text box, and type the word **SQL Database**. Click **SQL Database** in the list that appears.
 
-1. In the **SQL Database** blade, click **Create**.
+1. In the **SQL Database** screen, click **Create**.
 
-1. From the **Create SQL Database** blade, create an Azure SQL Database with the following settings:
+1. From the **Create SQL Database** screen, create an Azure SQL Database with the following settings:
 
-    - Subscription: the name of the subscription you are using in this lab
+    - In the Project details section, type in the following information
+    
+        - **Subscription**: the name of the subscription you are using in this lab
 
-    - Resource group name: **awrgstudxx**, where **xx** are your initials.
+        - **Resource group**: **awrgstudxx**, where **xx** are your initials.
 
-    - Database name: In **Additional setting** tab, under data source, click **Sample** . The AdventureworksLT sample database is selected automatically.
+    - Click on the  **Additional setting** tab, click **Sample** . The AdventureworksLT sample database is selected automatically. 
+    
+    - Click the **Basics** tab once this has been done.
+    
+    - In the Database details section, type in the following information
+    
+        - Database name: type in **AdventureworksLT**
+     
+        - Server: Create a new server by clicking **Create new** with the following settings and click on **OK**:
+            - **Server name**: **sqlservicexx**, where **xx** are your initials
+            - **Server admin login**: **xxsqladmin**, where **xx** are your initials
+            - **Password**: **Pa55w.rd**
+            - **Confirm Password**: **Pa55w.rd**
+            - **Location**: choose a **location** near to you.
+            - click on **OK**
 
-    - Server: Create a new server by clicking **Create new** with the following settings and click on **OK**:
-        - Server name: **SQLServicexx**, where **xx** are your initials
-        - Server admin login: **xxsqladmin**, where **xx** are your initials
-        - Password: **Pa55w.rd**
-        - Confirm Password: **Pa55w.rd**
-        - Location: choose a **location** near to you.
-        - Allow Azure services to access server: **checked**
+                ![Creating a server instance in the Azure portal](Linked_Image_Files/M05-E01-T01-img1.png)
 
-    - Click on **Additional settings** tab, under **Data Source**, click on **Sample**.
+            - Leave the remaining settings to their defaults, and then click on **OK**
+            
 
-    - Leave the remaining settings to their defaults
+    ![Creating a SQL Database in the Azure portal](Linked_Image_Files/M05-E01-T01-img02.png)
 
 1. In the **Create SQL Database*** blade, click **Review + create**.
 
@@ -81,7 +92,7 @@ The main task for this exercise are as follows:
 
 > **Result**: After you completed this exercise, you have an Azure SQL Database instance
 
-## Exercise 2: Describe Azure Data Warehouse
+## Exercise 2: Describe Azure Synapse Analytics
   
 Estimated Time: 15 minutes
 
@@ -89,31 +100,56 @@ Individual exercise
   
 The main tasks for this exercise are as follows:
 
-1. Create and configure a SQL Data Warehouse instance.
+1. Create and configure a Azure Synapse Analytics instance.
 
 1. Configure the Server Firewall
 
-### Task 1: Create and configure a SQL Data Warehouse instance.
+### Task 1: Create and configure a Azure Synapse Analytics instance.
 
-1. In the Azure portal, navigate to the **+ Create a resource** blade.
+1. In the Azure portal, clikc on the link **home** at the top left of the screen.
 
-1. In the New blade, navigate to the **Search the Marketplace** text box, and type the word **SQL Data**. Click **SQL Data Warehouse** in the list that appears.
+1. In the Azure portal, click **+ Create a resource**.
 
-1. In the **SQL Data Warehouse** blade, click **Create**.
+1. In the New blade, navigate to the **Search the Marketplace** text box, and type the word **Synapse**. Click **Azure Synapse Analytics (formerly SQL DW)** in the list that appears.
 
-1. From the **SQL Data Warehouse** blade, create an Azure SQL Data Warehouse with the following settings:
+1. In the **Azure Synapse Analytics (formerly SQL DW)** blade, click **Create**.
 
-    - Database name: **Warehousexx**, where **xx** are your initials.
+1. From the **SQL Data Warehouse** blade, create an Azure Synapse Analytics  with the following settings:
 
-    - Subscription: the name of the subscription you are using in this lab
+    - In the Project details section, type in the following information
 
-    - Resource group name: **awrgstudxx**, where **xx** are your initials.
-    - Server: **SQLServicexx**
+        - **Subscription**: the name of the subscription you are using in this lab
 
-    - Performance Level: **Gen2 DW100C**
+        - **Resource group**: **awrgstudxx**, where **xx** are your initials.
 
-    - Select Source: In **Additional setting** tab, under data source, click **Sample**
+    - In **Additional setting** tab, under data source, click **Sample**.
 
+    - Click the **Basics** tab once this has been done.
+    
+    - In the Database details section, type in the following information
+
+        - **Database warehouse name**: **Warehousexx**, where **xx** are your initials.
+
+        - **Server**: Create a new server by clicking **Create new** with the following settings and click on **OK**:
+            - **Server name**: **dwhservicexx**, where **xx** are your initials
+            - **Server admin login**: **xxsqladmin**, where **xx** are your initials
+            - **Password**: **Pa55w.rd**
+            - **Confirm Password**: **Pa55w.rd**
+            - **Location**: choose a **location** near to you.
+            - Select the checkbox to Allow Azure services to access server
+            - click on **OK**
+
+                ![Creating a server instance in the Azure portal](Linked_Image_Files/M05-E02-T01-img01.png)
+
+    - Performance Level: Click **Select performance level** and select **Gen2 DW100C** and .
+
+        ![Configuring performance of Azure Synapse Analytics in the Azure portal](Linked_Image_Files/M05-E02-T01-img02.png)
+
+    - Click **Apply**. the following configuration is shown.
+
+        ![Configuring Azure Synapse Analytics in the Azure portal](Linked_Image_Files/M05-E02-T01-img03.png)
+
+1. In the **SQL Data Warehouse*** screen, click **Review + create**.
 
 1. In the **SQL Data Warehouse*** blade, click **Create**.
 
@@ -123,17 +159,19 @@ The main tasks for this exercise are as follows:
 
 1. In the Azure portal, in the blade, click **Resource groups**, and then click **awrgstudxx**, and then click on **awdlsstudxx**, where **xx** are your initials
 
-1. Click on **sqlservicexx**, where **xx** are your initials.
+1. Click on **dwhservicexx**, where **xx** are your initials.
 
-1. In the **sqlservicexx** screen, click on **Firewalls and virtual networks**.
+1. In the **dwhservicexx** screen, click on **Firewalls and virtual networks**.
 
-1. In the sqlservicexx - Firewalls and virtual networks screen, click on the option **+ Add client IP**, and then click on **Save**.
+1. In the dwhservicexx - Firewalls and virtual networks screen, click on the option **+ Add client IP**, and then click on **Save**.
+
+    ![Configuring Azure Synapse Analytics firewall settings in the Azure portal](Linked_Image_Files/M05-E02-T02-img01.png)
 
     > **Note**: You will receive a message stating that the the server firewall rules have been successfully updated
 
-> **Result**: After you completed this exercise, you have created an Azure SQL Data Warehouse instance and configures the server firewall to enable connections against it.
+> **Result**: After you completed this exercise, you have created an Azure  Synapse Analytics  instance and configures the server firewall to enable connections against it.
 
-## Exercise 3: Creating an Azure SQL Data Warehouse
+## Exercise 3: Creating an Azure Synapse Analytics database and tables
 
 Estimated Time: 25 minutes
 
@@ -141,7 +179,7 @@ Individual exercise
 
 The main tasks for this exercise are as follows:
 
-1. Install SQL Server Management Studio and connect to a SQL Data Warehouse instance.
+1. Install SQL Server Management Studio and connect to a data warehouse instance.
 
 1. Create a SQL Data Warehouse database
 
@@ -176,15 +214,15 @@ The main tasks for this exercise are as follows:
     ```SQL
     CREATE DATABASE DWDB COLLATE SQL_Latin1_General_CP1_CI_AS
     (
-        EDITION 			= 'DataWarehouse'
-    ,	SERVICE_OBJECTIVE 	= 'DW100C'
-    ,	MAXSIZE 			= 1024 GB
+        EDITION             = 'DataWarehouse'
+    ,   SERVICE_OBJECTIVE   = 'DW100C'
+    ,   MAXSIZE             = 1024 GB
     );
     ```
 
     > **Note**: The creation of the database takes approximately 2 minutes.
 
-1. In the **awdlsstudxx** blade, click on **Access keys**, and then clilck on the copy icon next to the **Storage account name** and paste it into Notepad.
+1. In the **awdlsstudxx** blade, click on **Access keys**, and then click on the copy icon next to the **Storage account name** and paste it into Notepad.
 
 ### Task 3: Create SQL Data Warehouse tables.
 
@@ -238,7 +276,7 @@ The main tasks for this exercise are as follows:
 
 > **Result**: After you completed this exercise, you have installed SQL Server Management Studio to create a data warhouse named DWDB and three tables named Users, Products and FactSales.
 
-## Exercise 4: Using PolyBase to Load Data into Azure SQL Data Warehouse
+## Exercise 4: Using PolyBase to Load Data into Azure  Synapse Analytics 
 
 Estimated Time: 10 minutes
 
@@ -249,7 +287,6 @@ The main tasks for this exercise are as follows:
 1. Collect Azure Blob container and key details
 
 1. Create a dbo.Dates table using PolyBase from Azure Blob
-
 
 ### Task 1: Collect Azure Blob account name and key details
 
@@ -325,18 +362,18 @@ The main tasks for this exercise are as follows:
 
     ```SQL
     CREATE EXTERNAL TABLE dbo.DimDate2External (
-	[Date] datetime2(3) NULL,
-	[DateKey] decimal(38, 0) NULL,
-	[MonthKey] decimal(38, 0) NULL,
-	[Month] nvarchar(100) NULL,
-	[Quarter] nvarchar(100) NULL,
-	[Year] decimal(38, 0) NULL,
-	[Year-Quarter] nvarchar(100) NULL,
-	[Year-Month] nvarchar(100) NULL,
-	[Year-MonthKey] nvarchar(100) NULL,
-	[WeekDayKey] decimal(38, 0) NULL,
-	[WeekDay] nvarchar(100) NULL,
-	[Day Of Month] decimal(38, 0) NULL
+    [Date] datetime2(3) NULL,
+    [DateKey] decimal(38, 0) NULL,
+    [MonthKey] decimal(38, 0) NULL,
+    [Month] nvarchar(100) NULL,
+    [Quarter] nvarchar(100) NULL,
+    [Year] decimal(38, 0) NULL,
+    [Year-Quarter] nvarchar(100) NULL,
+    [Year-Month] nvarchar(100) NULL,
+    [Year-MonthKey] nvarchar(100) NULL,
+    [WeekDayKey] decimal(38, 0) NULL,
+    [WeekDay] nvarchar(100) NULL,
+    [Day Of Month] decimal(38, 0) NULL
     )
     WITH (
         LOCATION='/',
@@ -381,3 +418,5 @@ The main tasks for this exercise are as follows:
     ```SQL
     SELECT * FROM dbo.Dates;
     ```
+
+

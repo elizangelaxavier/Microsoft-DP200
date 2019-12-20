@@ -39,7 +39,7 @@ Estimated Time: 15 minutes
 
 Group exercise
   
-The main task for this exercise are as follows:
+The main task for this exercise is as follows:
 
 1. From the case study, identify the data requirements of AdventureWorks and identify if the data structure for the requirement is structured, semi-structured or unstructured.
 
@@ -103,7 +103,7 @@ The main task for this exercise are as follows:
 
 1. The instructor will stop the group to discuss the findings.
 
-> **Result**: After you completed this exercise, you have created a Microsoft Word document that shows a data requirements and the the high-level tasks that you will perform to meet the data requirement you have selected.
+> **Result**: After you completed this exercise, you have created a Microsoft Word document that shows a data requirements and the high-level tasks that you will perform to meet the data requirement you have selected.
 
 ## Exercise 4: Finalize the data engineering deliverables for AdventureWorks.
   
@@ -127,4 +127,4 @@ The main task for this exercise are as follows:
 
 1. The instructor will stop the group to discuss the findings.
 
-> **Result**: After you completed this exercise, you have created a Microsoft Word document that shows  the data engineering deliverables for AdventureWorks as reflected by the next five modules of this course.
+> **Result**: After you completed this exercise, you have created a Microsoft Word document that shows the data engineering deliverables for AdventureWorks as reflected by the next five modules of this course.

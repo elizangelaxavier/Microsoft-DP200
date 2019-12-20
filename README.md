@@ -22,7 +22,7 @@ The students will be able to describe and demonstrate the capabilities that Azur
 
 ## Lab 5 - Working with Relational Data Stores in the Cloud
 
-The students will be able to provision an Azure SQL Database and Azure SQL Data Warehouse and be able to issue queries against one of the instances that are created. They will be also be able to integrate SQL Data Warehouse with a number of other Data platform technologies and use PolyBase to load data from one data source into Azure SQL Data Warehouse.
+The students will be able to provision an Azure SQL Database and Azure Synapse Analytics to be able to issue queries against one of the instances that are created. They will be also be able to integrate Azure Synapse Analytics with a number of other Data platform technologies and use PolyBase to load data from one data source into a data warehouse.
 
 ## Lab 6 - Performing Real-Time Analytics with Stream Analytics
 

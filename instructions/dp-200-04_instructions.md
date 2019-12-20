@@ -47,23 +47,35 @@ The main task for this exercise are as follows:
 
 ### Task 1: Create an Azure Cosmos DB instance
 
-1. In the Azure portal, navigate to the **+ Create a resource** blade.
+1. In the Azure portal, if neccesary click on the **Home** hyperlink.
 
-1. In the New blade, navigate to the **Search the Marketplace** text box, and type the word **Cosmos**. Click **Azure Cosmos DB** in the list that appears.
+1. Navigate to the **+ Create a resource** icon.
 
-1. In the **Azure Cosmos DB** blade, click **Create**.
+1. In the New screen, click in the **Search the Marketplace** text box, and type the word **Cosmos**. Click **Azure Cosmos DB** in the list that appears.
+
+1. In the **Azure Cosmos DB** screen, click **Create**.
 
 1. From the **Create Azure Cosmos DB Account** screen, create an Azure Cosmos DB Account with the following settings:
 
-    - Subscription: the name of the subscription you are using in this lab
+    - In the Project details of the screen, type in the following information
+    
+        - **Subscription**: the name of the subscription you are using in this lab
 
-    - Resource group name: **awrgstudxx**, where **xx** are your initials
+        - **Resource group**: **awrgstudxx**, where **xx** are your initials
 
-    - Account name: **awcdbstudxx**, where **xx** are your initials.
+    - In the Instance details of the screen, type in the following information
 
-    - API: **Core(SQL)**
+        - **Account name**: **awcdbstudxx**, where **xx** are your initials.
 
-    - Location: the name of the Azure region which is closest to the lab location and where you can provision Azure VMs.
+        - **API**: **Core(SQL)**
+
+        - **Apache Spark**: **None**
+
+        - **Location**: the name of the Azure region which is closest to the lab location and where you can provision Azure VMs.
+
+        - Leave the remaining options to the default settings
+
+            ![Creating Azure Cosmos DB in the Azure portal](Linked_Image_Files/M04-E01-T01-img01.png)
 
 1. In the **Create Azure Cosmos DB Account** blade, click **Review + create**.
 
@@ -93,29 +105,33 @@ The main tasks for this exercise are as follows:
 
 ### Task 1: Setup your Azure Cosmos DB database and collection
 
-1. In the Azure portal, in the **awcdbstudxx - Quick start** screen, click on the **Overview** option in the blade
+1. In the Azure portal, once the deployment of Cosmos DB is completed, click on the **Go to resources** button.
 
-1. In the **awcdbstudxx** screen, click **+ Add Container**. This opens up the **awcdbstudxx Data Explorer** blade with the **SQL API** Blade.
+1. In the Cosmos DB screen,  click on the **Overview** button.
 
-1. Above the the **SQL API** Blade, click **New Container** screen, create a Products database with a container named Clothing with the following settings:
+1. In the **awcdbstudxx** screen, click **+ Add Container**. This opens up the **awcdbstudxx Data Explorer** screen with the **Add Container** blade.
 
-    - Database id: **Products**
+1. In the **Add Container** blade, create a Products database with a container named Clothing with the following settings:
+
+    - **Database id**: **Products**
     
-    - Throughput:  **400**
+    - **Throughput**:  **400**
 
-    - Container id:  **Clothing**
+    - **Container id**:  **Clothing**
 
-    - Partition key: **/productId**
+    - **Partition key**: **/productId**
 
     - Leave the remaining options with their default values
 
-1.In the **Add Container** screen, click **OK**
+        ![Adding a Container in Azure Cosmos DB in the Azure portal](Linked_Image_Files/M04-E02-T01-img01.png)
+
+1. In the **Add Container** screen, click **OK**
 
 ### Task 2: Add data using the portal
 
-1. In the **awcdbstudcto - Data Explorer** screen, on the Data Explorer toolbar, opposite the button for New Collection, click on the th **Open Full Screen** button. In the Open Full Screen dialog box, click **Open**. A new tab opens up in Microsoft Edge.
+1. In the **awcdbstudcto - Data Explorer** screen, on the Data Explorer toolbar, opposite the button for New Container, click on the **Open Full Screen** button. In the Open Full Screen dialog box, click **Open**. A new tab opens up in Microsoft Edge.
 
-1. In the **SQL API** pane, expand **Clothing** and click on **Items**. A new document appears with a sample JSON that you will now replace.
+1. In the **SQL API** pane, click in the refresh icon, and hen expand **Clothing** and click on **Items**. A new document appears with a sample JSON that you will now replace.
 
 1. In the Documents pane, click on the icon for **New Item**.
 
@@ -139,6 +155,8 @@ The main tasks for this exercise are as follows:
        }
     }
     ```
+
+    ![Adding data into Cosmos DB using Data Explorer in the Azure portal](Linked_Image_Files/M04-E02-T02-img01.png)
 
 1. Once you've added the JSON to the Documents tab, click **Save**.
 
@@ -165,9 +183,11 @@ The main tasks for this exercise are as follows:
     }
     ```
 
+    ![Adding data into Cosmos DB using Data Explorer in the Azure portal](Linked_Image_Files/M04-E02-T02-img02.png)
+
 1. Once you've added the JSON to the Documents tab, click **Save**.
 
-1. You can see each document that has been saved by clicking each document on the left-hand menu. The first item with id of 1, will have a value of **33218896**, the second item will be **33218897**
+1. You can see each document that has been saved by clicking each document on the left-hand menu. The first item with id of 1, will have a value of **33218896**, which is named after the productid, the second item will be **33218897**
 
 ### Task 3: Run queries in the Azure portal.
 
@@ -175,7 +195,7 @@ The main tasks for this exercise are as follows:
 
     > **Note**: A Query 1 screen tab appears which shows the query **SELECT * FROM c** .
 
-1. Write a query that returns a JSON file showing details for productId 1.
+1. Replace the query that returns a JSON file showing details for productId 1.
 
     ```SQL
     SELECT *
@@ -211,6 +231,8 @@ The main tasks for this exercise are as follows:
     ]
     ```
 
+    ![Querying data in Cosmos DB using Data Explorer in the Azure portal](Linked_Image_Files/M04-E03-T02-img01.png)
+
 1. In the existing query window. Write a query that returns the id, manufacturer and description in a JSON file for productId 
 
     ```SQL
@@ -233,6 +255,8 @@ The main tasks for this exercise are as follows:
     }
     ]
     ```
+
+    ![Querying data in Cosmos DB using Data Explorer in the Azure portal](Linked_Image_Files/M04-E03-T02-img02.png)
 
 1. In the existing query window, write a query that returns returns the price, description, and product ID for all products, ordered by price, in ascending order.
 
@@ -258,6 +282,8 @@ The main tasks for this exercise are as follows:
         }
     ]
     ```
+
+    ![Querying data in Cosmos DB using Data Explorer in the Azure portal](Linked_Image_Files/M04-E03-T02-img03.png)
 
 ### Task 4: Run complex operations on your data
 
@@ -385,11 +411,13 @@ The main tasks for this exercise are as follows:
 
 ### Task 1: Replicate Data to Multiple Regions
 
-1. In Microsoft Edge, click on the tab that states **Data Explorer - Microsoft..**.
+1. In Microsoft Edge, click on the tab that states **awcdbstudxx - Data Explorer..**.
 
 1. If a message appears that states "Connection error", click on the button **Refresh**.
 
-1. In the **awcdbstudxx - Data Explorer** window, click on **Replicate data globally**
+1. In the **awcdbstudxx - Data Explorer** window, in the blade,  click on **Replicate data globally**.
+
+    ![Global replication of Cosmos DB in the Azure portal](Linked_Image_Files/M04-E03-T01-img01.png)
 
 1. On the world map, single click a data center location within the continent you reside, and click on **Save**.
 
@@ -401,7 +429,9 @@ The main tasks for this exercise are as follows:
 
 1. Click on the **Read Region** datacenter location and click on **OK**.
 
->**Note**  The Manual Failover will take approximately 3 minutes.
+>**Note**  The Manual Failover will take approximately 3 minutes. The screen will look as follows. Note the icon colors have changed
+
+![Manual Failover of Cosmos DB in the Azure portal](Linked_Image_Files/M04-E03-T02-img1.png)
 
 1. In the **awcdbstudxx - Replicate data globally** window, click on **Automatic Failover**
 
