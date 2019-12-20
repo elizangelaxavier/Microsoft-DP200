@@ -165,7 +165,7 @@ The main tasks for this exercise are as follows:
 
 > **Result**: After you completed this exercise, you have created an Azure  Synapse Analytics  instance and configures the server firewall to enable connections against it.
 
-## Exercise 3: Creating an Azure Synapse Analytics data warehouse and tables
+## Exercise 3: Creating Azure Synapse Analytics data warehouse database and tables
 
 Estimated Time: 25 minutes
 
@@ -175,9 +175,9 @@ The main tasks for this exercise are as follows:
 
 1. Install SQL Server Management Studio and connect to a data warehouse instance.
 
-1. Create a SQL Data Warehouse database
+1. Create a Azure Synapse Analytics data warehouse database
 
-1. Create SQL Data Warehouse tables
+1. Create Azure Synapse Analytics data warehouse Data Warehouse tables
 
     > **Note**: If you are not familiar with Transact-SQL, statements are available for the following labs in the following location **Allfiles\Labfiles\Starter\DP-200.5\SQL DW Files**
 
@@ -337,7 +337,7 @@ The main tasks for this exercise are as follows:
     CREATE EXTERNAL DATA SOURCE AzureStorage
     WITH (
         TYPE = HADOOP,
-        LOCATION = 'abfs://data@awsdlstudxx.dfs.core.windows.net',
+        LOCATION = 'abfs://data@awdlsstudxx.dfs.core.windows.net',
         CREDENTIAL = AzureStorageCredential
     );
     ```
@@ -398,7 +398,7 @@ The main tasks for this exercise are as follows:
     [Day Of Month] decimal(38, 0) NULL
     )
     WITH (
-        LOCATION='/',
+        LOCATION='/DimDate2.txt',
         DATA_SOURCE=AzureStorage,
         FILE_FORMAT=TextFile
     );
