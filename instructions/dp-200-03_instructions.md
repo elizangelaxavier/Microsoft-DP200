@@ -103,7 +103,7 @@ The main tasks for this exercise are as follows:
 
 1. In the **Azure Databricks Service** blade, click **Create**.
 
-   > **Note**: The provision will takes approximately 3 minutes. The Databricks Runtime is built on top of Apache Spark and is natively built for the Azure cloud. Azure Databricks completely abstracts out the infrastructure complexity and the need for specialized expertise to set up and configure your data infrastructure. For data engineers, who care about the performance of production jobs, Azure Databricks provides a Spark engine that is faster and performant through various optimizations at the I/O layer and processing layer (Databricks I/O).
+   > **Note**: The provision will take approximately 3 minutes. The Databricks Runtime is built on top of Apache Spark and is natively built for the Azure cloud. Azure Databricks completely abstracts out the infrastructure complexity and the need for specialized expertise to set up and configure your data infrastructure. For data engineers, who care about the performance of production jobs, Azure Databricks provides a Spark engine that is faster and performant through various optimizations at the I/O layer and processing layer (Databricks I/O).
    
 ### Task 2: Open Azure Databricks.
 
@@ -377,7 +377,7 @@ The main tasks for this exercise are as follows:
 
     >**Note**  A future lab will explore how this data can be exported to another data platform technology
 
-> **Result**: After you completed this exercise, you have created a Data Lake Gen II Storage account named awdlsstudxx that has a file system named data that contains two weblog files that are ready to be used by the Data scientists at AdventureWorks.
+> **Result**: After you completed this exercise, you have created an annotation within a notebook.
 
 ### Task 4: If time permits or post course review
 

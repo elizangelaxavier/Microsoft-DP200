@@ -71,7 +71,7 @@ The main tasks for this exercise are as follows:
 
 1. Create and configure a storage account named **awsastudxx** in the region closest to the lab location within the resource group awrgstudxx, where **xx** are your initials.
 
-1. Create a container named **images** within the awsastudxx storage account.
+1. Create a container named **images**, **phonecalls** and **tweets** within the awsastudxx storage account.
 
 1. Upload some graphics to the images container of the storage account.
 
@@ -215,7 +215,7 @@ The main tasks for this exercise are as follows:
 
 1. In the **Storage account** blade, click **Create**.
 
-1. From the **Create storage account*** blade, create the first storage account with the following settings:
+1. From the **Create storage account*** blade, create a storage account with the following settings:
 
     - Under the project details, specify the following settings:
 
@@ -334,8 +334,6 @@ The main task for this exercise are as follows:
 1. In the **Choose files to upload** dialog box, click **Open**.
 
 1. In the **Upload Files** screen, click on the **Upload** button.
-
-   > **Note**: The upload of the files will take approximately 5 seconds. You will see a message in Azure Storage Explorer that states **Your view may be out of data. Do you want to refresh? Click Yes**. Once completed, all three files will appear in a list in the upload blobs screen.
 
    ![Uploading files in Azure Storage Explore](Linked_Image_Files/M02-E04-T02-img01.png)
 

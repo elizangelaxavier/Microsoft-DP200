@@ -113,11 +113,11 @@ Individual exercise
   
 The main task for this exercise are as follows:
 
-1. Select one of the requirements and determine the high-level tasks that will perform to meet the data requirement selected.
+1. Finalize the data engineering deliverables for AdventureWorks
 
 1. The instructor will discuss the findings with the group.
 
-### Task 1: Determine the high-level tasks that you think you will perform to meet the data requirement.
+### Task 1: Finalize the data engineering deliverables for AdventureWorks
 
 1. From the lab virtual machine, start **Microsoft Word**, and open up the file **DP-200-Lab01-Ex04.docx** from the **Allfiles\Labfiles\Starter\DP-200.1** folder.
 

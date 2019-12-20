@@ -104,6 +104,8 @@ The main tasks for this exercise are as follows:
 
 1. Configure the Server Firewall
 
+1. Pause the warehouse database
+
 ### Task 1: Create and configure a Azure Synapse Analytics instance.
 
 1. In the Azure portal, clikc on the link **home** at the top left of the screen.
@@ -163,13 +165,25 @@ The main tasks for this exercise are as follows:
 
 1. In the **dwhservicexx** screen, click on **Firewalls and virtual networks**.
 
-1. In the dwhservicexx - Firewalls and virtual networks screen, click on the option **+ Add client IP**, and then click on **Save**.
+1. In the dwhservicexx - Firewalls and virtual networks screen, click on the option **+ Add client IP**, and then click on **Save**. On the success screen click **OK**.
 
     ![Configuring Azure Synapse Analytics firewall settings in the Azure portal](Linked_Image_Files/M05-E02-T02-img01.png)
 
     > **Note**: You will receive a message stating that the the server firewall rules have been successfully updated
 
+1. Close down the Firewalls and virtual networks screen.
+
 > **Result**: After you completed this exercise, you have created an Azure  Synapse Analytics  instance and configures the server firewall to enable connections against it.
+
+### Task 3: Pause the Warehousexx database
+
+1. Click on **Warehousexx**, where **xx** are your initials.
+
+1. In the **Warehousexx (dwhservicexx/Warehousexx)** screen, click on **Pause**.
+
+1. In the Pause Warehousexx screen, click **Yes**
+
+
 
 ## Exercise 3: Creating an Azure Synapse Analytics database and tables
 
