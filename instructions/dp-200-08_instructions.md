@@ -75,7 +75,11 @@ The main tasks for this exercise are as follows:
 
 1. In the Azure portal tab, click **Security Center**.
 
+    ![Security Center in the Azure Portal](Linked_Image_Files/M08-E01-T01-img01.png)
+
 1. In the Security Center - Overview screen, under **Resource Security Hygiene**, click Data and Storage.
+
+    ![Security Center - Data Storage in the Azure Portal](Linked_Image_Files/M08-E01-T01-img02.png)
 
 1. Identify the top two key data and storage components that require attention.
 
@@ -128,7 +132,7 @@ The main tasks for this exercise are as follows:
 
 1. In the Azure portal, in the blade, click Resource groups, and then click awrgstudxx, and then click on **AdventureWorksLT**.
 
-1. In the deptdatabasesxx (sqlservicexx/deptdatabasesxx) screen, click on the **Auditing** blade.
+1. In the deptdatabasesxx (sqlservicexx/AdventureWorksLT) screen, click on the **Auditing** blade.
 
 1. Under **Auditing**, click on the **ON** button.
 
@@ -142,9 +146,9 @@ The main tasks for this exercise are as follows:
 
 1. In the **Retention Days** text box, type **90**, and then click on **OK**.
 
-1. In the deptdatabasesxx (sqlservicexx/deptdatabasesxx) screen, click on the **Save** icon.
+    ![Configuring Auditing in the Azure Portal](Linked_Image_Files/M08-E04-T01-img01.png)
 
-1. In the Success dialog box, click on **OK**.
+1. Click on **Save**.
 
 ### Task 2: Query the database
 
@@ -160,15 +164,19 @@ The main tasks for this exercise are as follows:
 
 > **Note**: An error message is returned as the password is incorrect. Type in the correct password of **P@Ssw0rd**.
 
+1. Type in the correct password of **Pa55w.rd**
+
 1. In **SQL Server Management Studio**, in Object Explorer, expand **AdventureWorksLT**, and then expand **Tables**.
 
 1. Right click [SalesLT].[Customers] and then click **Select Top 1000 Rows**
 
 ### Task 2: View the Audit Log
 
-1. Return to the Azure Portal. In the deptdatabasesxx (sqlservicexx/deptdatabasesxx) - Auditing screen, click on **View Audit Logs**
+1. Return to the Azure Portal. In the AdventureWorksLT (sqlservicexx/AdventureWorksLT) - Auditing screen, click on **View Audit Logs**
 
 1. Note in the **Audit records** log file the **Failed Authentication** record. Close down the **Audit records** screen
+
+    ![Viewing Audit records in the Azure Portal](Linked_Image_Files/M08-E04-T01-img02.png)
 
 > **Result**: After you completed this exercise, you have enabled database auditing and verified that the auditing works.
 
@@ -184,13 +192,13 @@ The main tasks for this exercise are as follows:
 
 ### Task 1: Changing Event Hub Permissions
 
-1. In the Azure portal, in the blade, click **Resource groups**, and then click **awrgstudxx**, and then click on **xx-socialtwitter-eh**, where **xx** are your initials
+1. In the Azure portal, in the blade, click **Resource groups**, and then click **awrgstudxx**, and then click on **xx-phoneanalysis-ehn**, where **xx** are your initials
 
-1. In the Azure portal, in the **xx-socialtwitter-eh**, where **xx** are your initials. Scroll to the bottom of the window, and click on **socialtwitter-eh** event hub.
+1. In the Azure portal, in the **xx-phoneanalysis-ehn**, where **xx** are your initials. Scroll to the bottom of the window, and click on **xx-phoneanalysis-eh** event hub.
 
 1. To grant access to the event hub, click **Shared access policies**.
 
-1. Under the **socialtwitter-eh - Shared access policies** screen, click on **socialtwitter-eh-sap**.
+1. Under the **xx-phoneanalysis-eh - Shared access policies** screen, click on **phoneanalysis-eh-sap**.
 
 1. Click on the checkbox next to the **Manage** permissions to remove it, and then click **Save**.
 
