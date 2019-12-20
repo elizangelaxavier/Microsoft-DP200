@@ -26,7 +26,7 @@ The developers and Information Services department at AdventureWorks are aware t
 
 The Information Services department want to understand how the service can be setup and how data can be uploaded. The developers would like to see an example of an application that can be used to upload data to the Cosmos. Both would like to understand how the claim of planetary scale can be met.
 
-At the end of this lad, you will have:
+At the end of this lab, you will:
 
 1. Create an Azure Cosmos DB database built to scale
 1. Insert and query data in your Azure Cosmos DB database
@@ -314,7 +314,7 @@ The main tasks for this exercise are as follows:
                 context.getResponse().setBody(documentCreated)
             });
         if (!accepted) return;
-}
+    }
     ```
 
 1. In the New Stored Procedure screen, click **Save**.
@@ -338,11 +338,11 @@ The following result is returned
     }
     ```
 
-1. In the Azure portal, in the **items** screen, click on the drop down button **New Stored Procedure** and click **New UDF** .
+1. In the Azure portal, in the Data Explorer full screen, click on the drop down button for **New Stored Procedure** and click **New UDF** .
 
     > **Note**: A New UDF 1 screen appears which shows **function userDefinedFunction(){}**
 
-1. In the New Stored Procedure screen, in the **User Defined Function Id** text box, type **producttax**.
+1. In the New Defined Function screen, in the **User Defined Function Id** text box, type **producttax**.
 
 1. Use the following code to create a stored procedure in the Stored Procedure Body.
 
