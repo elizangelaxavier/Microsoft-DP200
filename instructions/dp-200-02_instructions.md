@@ -359,6 +359,10 @@ The main task for this exercise are as follows:
 
     ![Files uploaded to Containers in Azure Storage Explore](Linked_Image_Files/M02-E04-T02-img02.png)
 
+1. In Azure Storage Explorer, in the data file system, click on the **+ New Folder** button.
+
+1. In the New Folder screen, in the New folder name text box, type **output**.
+
 1. Close down Azure Storage Explorer.
 
 1. Return to the Azure portal, and navigate to the **Home** blade.
