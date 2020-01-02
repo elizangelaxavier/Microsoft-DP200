@@ -131,9 +131,9 @@ The main tasks for this exercise are as follows:
 
 1. In the **awcdbstudcto - Data Explorer** screen, on the Data Explorer toolbar, opposite the button for New Container, click on the **Open Full Screen** button. In the Open Full Screen dialog box, click **Open**. A new tab opens up in Microsoft Edge.
 
-1. In the **SQL API** pane, click in the refresh icon, and hen expand **Clothing** and click on **Items**. A new document appears with a sample JSON that you will now replace.
+1. In the **SQL API** pane, click in the refresh icon, and then expand **Products**, followed by **Clothing** and click on **Items**. 
 
-1. In the Documents pane, click on the icon for **New Item**.
+1. In the Documents pane, click on the icon for **New Item**. A new document appears with a sample JSON that you will now replace.
 
 1. Copy the following code and paste it into the **Documents** tab:
 
@@ -344,7 +344,7 @@ The following result is returned
 
 1. In the New Defined Function screen, in the **User Defined Function Id** text box, type **producttax**.
 
-1. Use the following code to create a stored procedure in the Stored Procedure Body.
+1. Use the following code to create a user defined function in the user defined function Body.
 
     ```Javascript
     function producttax(price) {
@@ -427,7 +427,7 @@ The main tasks for this exercise are as follows:
 
 1. In the **awcdbstudxx - Replicate data globally** window, click on **Manual Failover**.
 
-1. Click on the **Read Region** datacenter location and click on **OK**.
+1. Click on the **Read Region** datacenter location, then click on the check box next to "I understand and agree to trigger a failover on my current Write Region.", and then click on **OK**.
 
 >**Note**  The Manual Failover will take approximately 3 minutes. The screen will look as follows. Note the icon colors have changed
 
