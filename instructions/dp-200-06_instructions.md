@@ -261,11 +261,11 @@ The main tasks for this exercise are as follows:
 1. In the **Outputs** screen, click **+ Add**, and then click **Blob Storage**.
 
 1. In the **Blob storage** window, type or select the following values in the pane:
-    - **Output alias**: **:PhoneCallRefData**:
+    - **Output alias**: **PhoneCallRefData**
     - **Select Event Hub from your subscriptions**: checked
     - **Subscription**: Your subscription name
     - **Storage account**: **:awsastudxx**:, where xx is your initials
-    - **Container**: **:Use existing**: and **:select phonecalls**
+    - **Container**: **Use existing** and select **phonecalls**
     - Leave the rest of the entries as default values. Finally, click **Save**.
 
         ![Create a Job Output in Stream Analytics Job in the Azure Portal](Linked_Image_Files/M06-E04-T03-img01.png)
