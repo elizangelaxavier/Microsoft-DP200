@@ -93,6 +93,8 @@ The main tasks for this exercise are as follows:
 
         ![Creating a Resource Group in the Azure portal](Linked_Image_Files/M02-E02-T01-img01.png)
 
+1. In the Create a resource group screen, click on **Review + Create**.
+
 1. In the Create a resource group screen, click on **Create**.
 
 > **Note**: it will take approximately 30 seconds to create a resource group. You can check the notifications area to check when the creation in complete.
@@ -107,7 +109,7 @@ The main tasks for this exercise are as follows:
 
 1. In the **Storage account** screen, click **Create**.
 
-1. From the **Create storage account*** screen, create the first storage account with the following settings:
+1. From the **Create storage account** screen, create the first storage account with the following settings:
 
     - Under the project details, specify the following settings:
 
@@ -141,7 +143,7 @@ The main tasks for this exercise are as follows:
 
 1. In the Azure portal, a message states that _Your deployment is complete_, click on the button **Go to resource**.
 
-1. In the **awsastudxx** screen, where **xx** are your initials, under the **Services** click **Containers**.
+1. In the **awsastudxx** screen, where **xx** are your initials, under the **Blob Service** click **Containers**.
 
 1. In the **awsastudxx - Containers** screen, at the top left, click on the  **+ Container** button.
 
@@ -153,7 +155,7 @@ The main tasks for this exercise are as follows:
 
         ![Create a Container in the Azure portal](Linked_Image_Files/M02-E02-T03-img01.png)
 
-1. In the **New Container*** screen, click **OK**.
+1. In the **New Container** screen, click **OK**.
 
    > **Note**: The creation of the container is immediate and will appear in the list of the **awrgstudxx - Containers** screen.
 
@@ -203,7 +205,7 @@ The main tasks for this exercise are as follows:
 
 1. Create and configure a storage account named **awdlsstudxx** as a Data Lake Store Gen2 storage type in the region closest to the lab location, within the resource group awrgstudxx, where **xx** are your initials.
 
-1. Create a file system named **logs** and **data** within the awdlsstudxx storage account.
+1. Create containers named **logs** and **data** within the awdlsstudxx storage account.
 
 1. Upload some data files to the data container of the storage account.
 
@@ -249,15 +251,15 @@ The main tasks for this exercise are as follows:
 
    > **Note**: The creation of the storage account will take approximately 90 seconds while it provisions the disks and the configuration of the disks as per the settings you have defined.
 
-### Task 2: Create and configure a file system within the storage account.
+### Task 2: Create and configure a Container within the storage account.
 
 1. In the Azure portal, a message states that _Your deployment is complete_, click on the button **Go to resource**.
 
 1. In the **awdlsstudxx** screen, where **xx** are your initials, click **Containers**.
 
-1. In the **awrgstudxx - Containers** screen, at the top left, click on the  **+ File systems** button.
+1. In the **awrgstudxx - Containers** screen, at the top left, click on the  **+ File System** button.
 
-1. From the **Add file systems** screen, create two file systems with the following name:
+1. From the **New** screen, create two file systems with the following name:
 
     - Name: **data**.
 
