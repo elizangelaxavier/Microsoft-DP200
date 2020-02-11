@@ -85,8 +85,7 @@ The main tasks for this exercise are as follows:
     - **Subscription**: **Your subscription**
     - **Resource group**: **awrgstudxx**
     - **Location**: select the location closest to you
-    - **Enable Auto-Inflate**: click on the check box 
-    - **Auto-Inflate Maximum Throughput Units**: **20**
+    - **Throughput Units**: **20**
     - Leave other options to their default settings
 
         ![Creating an Event Hub Namespace in Azure portal](Linked_Image_Files/M06-E02-T01-img01.png)

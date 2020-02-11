@@ -105,7 +105,7 @@ The main tasks for this exercise are as follows:
 
 1. In the Azure portal, click on the **+ Create a resource** icon.
 
-1. In the New screen, click in the **Search the Marketplace** text box, and type the word **storage**. Click **Storage account** in the list that appears.
+1. In the New screen, click in the **Search the Marketplace** text box, and type the word **storage acount**. Click **Storage account - blob, file, table, queue** in the list that appears.
 
 1. In the **Storage account** screen, click **Create**.
 
@@ -257,7 +257,7 @@ The main tasks for this exercise are as follows:
 
 1. In the **awdlsstudxx** screen, where **xx** are your initials, click **Containers**.
 
-1. In the **awrgstudxx - Containers** screen, at the top left, click on the  **+ File System** button.
+1. In the **awrgstudxx - Containers** screen, at the top left, click on the  **+ Containers** button.
 
 1. From the **New** screen, create two file systems with the following name:
 
@@ -265,7 +265,7 @@ The main tasks for this exercise are as follows:
 
     - Name: **logs**
 
-1. In the **Add file systems*** screen, click **OK**.
+1. In the **New Containers** screen, click **OK**.
 
    > **Note**: The creation of the file system is immediate and will appear in the list of the **awdlsstudxx - Containers** screen as follows.
 
