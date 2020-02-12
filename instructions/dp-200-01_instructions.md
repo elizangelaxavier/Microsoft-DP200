@@ -28,10 +28,10 @@ You have been asked to work with the IT department to perform a discovery worksh
 
 The first step is to assess the current state of the cloud technologies and make sure that they can perform the project by performing the following analysis:
 
-1. Identify the evolving world of data within AdventureWorks
-2. Determine the Azure Data Platform services to use for AdventureWorks
-3. Identify the tasks to be performed by the Data Engineer
-4. Finalize the data engineering deliverables for AdventureWorks
+1. Identified the evolving world of data within AdventureWorks
+2. Determined the Azure Data Platform services to use for AdventureWorks
+3. Identified the tasks to be performed by the Data Engineer
+4. Finalized the data engineering deliverables for AdventureWorks
 
 ## Exercise 1: Identify the evolving world of data within AdventureWorks.
 

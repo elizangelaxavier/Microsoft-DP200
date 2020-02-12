@@ -15,11 +15,11 @@ The students will be able to describe and document the different approaches to s
   
 After completing this lab, you will be able to:
 
-1. An Introduction to Security
-1. Key security components
-1. Securing Storage Accounts and Data Lake Storage
-1. Securing Data Stores
-1. Securing Streaming Data
+1. Explain Security
+1. Describe key security components
+1. Secure Storage Accounts and Data Lake Storage
+1. Secure Data Stores
+1. Secure Streaming Data
 
 ## Scenario
   
@@ -29,11 +29,11 @@ You have also been asked to tighten up the security of the SQL Database DeptData
 
 At the end of this lad, you will have:
 
-1. An introduction to security
-1. Key security components
-1. Securing Storage Accounts and Data Lake Storage
-1. Securing Data Stores
-1. Securing Streaming Data
+1. Explained Security
+1. Described key security components
+1. Secured Storage Accounts and Data Lake Storage
+1. Secured Data Stores
+1. Secured Streaming Data
 
 > **IMPORTANT**: As you go through this lab, make a note of any issue(s) that you have encountered in any provisioning or configuration tasks and log it in the table in the document located at _\Labfiles\DP-200-Issues-Doc.docx_. Document the Lab number, note the technology, Describe the issue, and what was the resolution. Save this document as you will refer back to it in a later module.
 

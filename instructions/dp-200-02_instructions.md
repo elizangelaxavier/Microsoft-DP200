@@ -28,10 +28,10 @@ In addition, the information services department have informed you that their te
 
 At the end of this work, you will have:
 
-1. Choose a data storage approach in Azure
-2. Create an Azure Storage Account
-3. Explain Azure Data Lake Storage
-4. Upload data into Azure Data Lake
+1. Choosen a data storage approach in Azure
+2. Created an Azure Storage Account
+3. Explained Azure Data Lake Storage
+4. Uploaded data into Azure Data Lake
 
 > **IMPORTANT**: As you go through this lab, make a note of any issue(s) that you have encountered in any provisioning or configuration tasks and log it in the table in the document located at _\Labfiles\DP-200-Issues-Doc.docx_. Document the Lab number, note the technology, Describe the issue, and what was the resolution. Save this document as you will refer back to it in a later module.
 

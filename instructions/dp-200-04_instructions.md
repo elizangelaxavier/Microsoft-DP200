@@ -28,10 +28,10 @@ The Information Services department want to understand how the service can be se
 
 At the end of this lab, you will:
 
-1. Create an Azure Cosmos DB database built to scale
-1. Insert and query data in your Azure Cosmos DB database
-1. Distribute your data globally with Azure Cosmos DB
-1. (optional) Build a .NET Core app for Azure Cosmos DB in Visual Studio Code
+1. Created an Azure Cosmos DB database built to scale
+1. Inserted and queried data in your Azure Cosmos DB database
+1. Distributed your data globally with Azure Cosmos DB
+1. (optional) Built a .NET Core app for Azure Cosmos DB in Visual Studio Code
 
 > **IMPORTANT**: As you go through this lab, make a note of any issue(s) that you have encountered in any provisioning or configuration tasks and log it in the table in the document located at _\Labfiles\DP-200-Issues-Doc.docx_. Document the Lab number, note the technology, Describe the issue, and what was the resolution. Save this document as you will refer back to it in a later module.
 

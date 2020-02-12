@@ -30,10 +30,10 @@ There are concerns around the recovery of the Products database that is stored i
 
 At the end of this lad, you will have:
 
-1. Explain the monitoring capabilities that are available
+1. Explained the monitoring capabilities that are available
 1. Troubleshoot common data storage issues
 1. Troubleshoot common data processing issues
-1. Manage disaster recovery
+1. Managed disaster recovery
 
 ## Exercise 0: Issue review
 

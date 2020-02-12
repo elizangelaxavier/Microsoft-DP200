@@ -16,9 +16,9 @@ The students will be able to describe what data streams are and how event proces
 After completing this lab, you will be able to:
 
 1. Explain data streams and event processing
-1. Data Ingestion with Event Hubs
+1. Ingest data with Event Hubs
 1. Initiate a data generation application
-1. Processing Data with Stream Analytics Jobs
+1. Process Data with a Stream Analytics Jobs
 
 ## Scenario
   
@@ -28,10 +28,10 @@ The department are currently relying on the experience of customer services agen
 
 At the end of this lad, you will have:
 
-1. Explain data streams and event processing
-1. Data Ingestion with Event Hubs
-1. Initiate a data generation application
-1. Processing Data with Stream Analytics Jobs
+1. Explained data streams and event processing
+1. Ingested data with Event Hubs
+1. Initiated a data generation application
+1. Processed Data with Stream Analytics Jobs
 
 > **IMPORTANT**: As you go through this lab, make a note of any issue(s) that you have encountered in any provisioning or configuration tasks and log it in the table in the document located at _\Labfiles\DP-200-Issues-Doc.docx_. Document the Lab number, note the technology, Describe the issue, and what was the resolution. Save this document as you will refer back to it in a later module.
 

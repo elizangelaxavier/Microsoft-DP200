@@ -17,8 +17,8 @@ After completing this lab, you will be able to:
 
 1. Use Azure SQL Database
 1. Describe Azure Synapse Analytics 
-1. Creating and Querying an Azure Synapse Analytics 
-1. Using PolyBase to Load Data into Azure Synapse Analytics 
+1. Create and query Azure Synapse Analytics 
+1. Use PolyBase to load data into Azure Synapse Analytics 
 
 ## Scenario
   
@@ -28,10 +28,10 @@ You will then provision Azure Synapse Analytics server and test that the provisi
 
 At the end of this lad, you will have:
 
-1. Use Azure SQL Database
-1. Describe Azure Synapse Analytics 
-1. Creating and Querying an Azure Synapse Analytics 
-1. Using PolyBase to Load Data into Azure Synapse Analytics 
+1. Used Azure SQL Database
+1. Described Azure Synapse Analytics 
+1. Created and queryied Azure Synapse Analytics 
+1. Used PolyBase to doad data into Azure Synapse Analytics 
 
 > **IMPORTANT**: As you go through this lab, make a note of any issue(s) that you have encountered in any provisioning or configuration tasks and log it in the table in the document located at _\Labfiles\DP-200-Issues-Doc.docx_. Document the Lab number, note the technology, Describe the issue, and what was the resolution. Save this document as you will refer back to it in a later module.
 

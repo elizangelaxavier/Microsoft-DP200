@@ -28,10 +28,10 @@ You will stand up and provision an Azure Databricks environment, and then test t
 
 At the end of this lad, you will have:
 
-1. Explain Azure Databricks
-1. Work with Azure Databricks
+1. Explained Azure Databricks
+1. Worked with Azure Databricks
 1. Read data with Azure Databricks
-1. Perform transformations with Azure Databricks
+1. Performed transformations with Azure Databricks
 
 > **IMPORTANT**: As you go through this lab, make a note of any issue(s) that you have encountered in any provisioning or configuration tasks and log it in the table in the document located at _\Labfiles\DP-200-Issues-Doc.docx_. Document the Lab number, note the technology, Describe the issue, and what was the resolution. Save this document as you will refer back to it in a later module.
 
